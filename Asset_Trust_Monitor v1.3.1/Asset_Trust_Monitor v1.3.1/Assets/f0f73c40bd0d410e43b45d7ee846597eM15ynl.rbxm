@@ -1,0 +1,834 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<Item class="Model" referent="RBX0">
+		<Properties>
+			<string name="Name">MonsterSystem</string>
+		</Properties>
+		<Item class="Script" referent="RBX1">
+			<Properties>
+				<string name="Name">MonsterServer</string>
+				<ProtectedString name="Source"><![CDATA[-- MonsterSystem - MonsterServer  (server-authoritative horror chase AI, session-only)
+--
+-- A patrolling monster hunts players with a sight cone (range + angle + line of sight) and a
+-- close-range proximity sense. States: PATROL walks a waypoint loop -> CHASE runs at a target it
+-- detects -> SEARCH heads to the last-seen spot when it loses you -> back to PATROL. Players can
+-- HIDE at a hide-spot to become undetectable. Reaching a target triggers a jumpscare hook and a
+-- MonsterCaught event (your code decides what happens; by default the caught player is reset).
+-- Entering/leaving CHASE fires a chase-music cue. The SERVER owns the monster and all detection;
+-- the client only displays and asks to hide. SESSION only (a SAVE HOOK line marks nothing to save -
+-- this kit is stateless between servers by design). The monster is kinematic (moved by CFrame), so
+-- it needs no pathfinding service and drops onto any map; swap in your own rig via a MonsterRig model.
+
+local RS       = game:GetService("ReplicatedStorage")
+local Players  = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+
+local me = script
+
+local MonsterEvent = RS:WaitForChild("MonsterEvent")   -- RemoteFunction: client asks (state / hide / unhide)
+local MonsterSync  = RS:WaitForChild("MonsterSync")     -- RemoteEvent   : server -> client push
+
+local Admin = me:FindFirstChild("MonsterAdmin")
+if not Admin then
+	Admin = Instance.new("BindableEvent"); Admin.Name = "MonsterAdmin"; Admin.Parent = me
+end
+local Caught = me:FindFirstChild("MonsterCaught")       -- server BindableEvent your code can listen to
+if not Caught then
+	Caught = Instance.new("BindableEvent"); Caught.Name = "MonsterCaught"; Caught.Parent = me
+end
+
+-- ---- config (a NumberValue under the Config folder overrides any default) -------------
+local CFG = RS:FindFirstChild("Config")
+local function cfg(name, default)
+	local v = CFG and CFG:FindFirstChild(name)
+	if v and (v:IsA("NumberValue") or v:IsA("IntValue")) then return v.Value end
+	return default
+end
+local function C()
+	return {
+		sightRange   = cfg("SightRange", 60),
+		sightHalf    = cfg("SightHalfAngleDeg", 55),
+		hearRadius   = cfg("HearingRadius", 22),
+		patrolSpeed  = cfg("PatrolSpeed", 9),
+		chaseSpeed   = cfg("ChaseSpeed", 19),
+		searchSpeed  = cfg("SearchSpeed", 12),
+		loseTime     = cfg("LoseTime", 3),
+		searchTime   = cfg("SearchTime", 3),
+		catchRange   = cfg("CatchRange", 6),
+		hideRadius   = cfg("HideRadius", 12),
+		waypointPause = cfg("WaypointPause", 1.2),
+		tick         = cfg("TickRate", 0.15),
+		resetOnCatch = cfg("ResetOnCatch", 1),
+		catchCooldown = cfg("CatchCooldown", 3),
+		groundY      = cfg("GroundY", 3),
+	}
+end
+
+-- ---- monster (kinematic model moved by CFrame) ---------------------------------------
+local monster        -- the Model
+local monsterLook = Vector3.new(0, 0, 1)
+local state = "PATROL"
+local target          -- Player being chased
+local lastSeen        -- Vector3 last-known target position
+local lastDetect = 0
+local searchStart = 0
+local waypointIndex = 1
+local arriveAt = 0
+local held = false    -- movement frozen (cutscene / testing); detection still runs
+local lastCatch = 0
+local HIDDEN = {}     -- HIDDEN[plr] = true
+
+local function folderParts(name)
+	local out = {}
+	local f = Workspace:FindFirstChild(name)
+	if f then
+		for _, p in ipairs(f:GetChildren()) do
+			if p:IsA("BasePart") then out[#out + 1] = p end
+		end
+		table.sort(out, function(a, b) return a.Name < b.Name end)
+	end
+	return out
+end
+
+local function buildPlaceholder(pos)
+	local m = Instance.new("Model"); m.Name = "Monster"
+	local function block(n, size, off, color)
+		local p = Instance.new("Part"); p.Name = n; p.Anchored = true; p.CanCollide = false
+		p.Size = size; p.Color = color; p.Material = Enum.Material.SmoothPlastic
+		p.CFrame = CFrame.new(pos + off); p.Parent = m
+		return p
+	end
+	local dark = Color3.fromRGB(60, 20, 24)
+	local torso = block("Torso", Vector3.new(2.6, 3, 1.4), Vector3.new(0, 0, 0), dark)
+	block("Head", Vector3.new(1.4, 1.4, 1.4), Vector3.new(0, 2.4, 0), Color3.fromRGB(40, 12, 16))
+	block("ArmL", Vector3.new(0.8, 2.8, 0.8), Vector3.new(-1.8, 0.1, 0), dark)
+	block("ArmR", Vector3.new(0.8, 2.8, 0.8), Vector3.new(1.8, 0.1, 0), dark)
+	block("LegL", Vector3.new(0.9, 3, 0.9), Vector3.new(-0.7, -3, 0), dark)
+	block("LegR", Vector3.new(0.9, 3, 0.9), Vector3.new(0.7, -3, 0), dark)
+	local eye = Instance.new("PointLight"); eye.Color = Color3.fromRGB(255, 40, 40)
+	eye.Brightness = 3; eye.Range = 14; eye.Parent = torso
+	m.PrimaryPart = torso
+	m.Parent = Workspace
+	return m
+end
+
+local function spawnMonster()
+	if monster and monster.Parent then monster:Destroy() end
+	local wps = folderParts("Waypoints")
+	local c = C()
+	local pos = (wps[1] and wps[1].Position) or Vector3.new(0, c.groundY, 0)
+	pos = Vector3.new(pos.X, c.groundY, pos.Z)
+	local rig = me:FindFirstChild("MonsterRig")   -- optional: buyer's own model to clone
+	if rig and rig:IsA("Model") then
+		monster = rig:Clone()
+		if not monster.PrimaryPart then
+			monster.PrimaryPart = monster:FindFirstChildWhichIsA("BasePart")
+		end
+		for _, d in ipairs(monster:GetDescendants()) do
+			if d:IsA("BasePart") then d.Anchored = true end
+		end
+		monster.Parent = Workspace
+		monster:PivotTo(CFrame.new(pos))
+	else
+		monster = buildPlaceholder(pos)
+	end
+	monster.Name = "Monster"
+	monsterLook = Vector3.new(0, 0, 1)
+	state, target, lastSeen = "PATROL", nil, nil
+	waypointIndex = 1
+end
+
+local function monsterPos()
+	if monster and monster.PrimaryPart then return monster:GetPivot().Position end
+	return Vector3.new(0, 0, 0)
+end
+
+-- ---- detection -----------------------------------------------------------------------
+local function charPos(plr)
+	local ch = plr.Character
+	if not ch then return nil end
+	local hrp = ch:FindFirstChild("HumanoidRootPart") or ch.PrimaryPart
+	return hrp and hrp.Position or nil
+end
+
+local function losClear(fromPos, toPos)
+	local dir = toPos - fromPos
+	if dir.Magnitude < 0.1 then return true end
+	local params = RaycastParams.new()
+	params.FilterType = Enum.RaycastFilterType.Exclude
+	local ignore = { monster }
+	for _, plr in ipairs(Players:GetPlayers()) do
+		if plr.Character then ignore[#ignore + 1] = plr.Character end
+	end
+	params.FilterDescendantsInstances = ignore
+	local hit = Workspace:Raycast(fromPos, dir, params)
+	if not hit then return true end
+	return (hit.Position - fromPos).Magnitude >= dir.Magnitude - 2
+end
+
+-- returns the nearest detected player (sight or proximity), skipping hidden players
+local function detect()
+	local c = C()
+	local mp = monsterPos()
+	local eye = mp + Vector3.new(0, 2, 0)
+	local look = Vector3.new(monsterLook.X, 0, monsterLook.Z)
+	local best, bestDist = nil, math.huge
+	for _, plr in ipairs(Players:GetPlayers()) do
+		if not HIDDEN[plr] then
+			local pp = charPos(plr)
+			if pp then
+				local d = pp - mp
+				local dist = d.Magnitude
+				local sensed = false
+				if dist <= c.hearRadius then
+					sensed = true                                   -- close-range proximity sense
+				elseif dist <= c.sightRange then
+					local flat = Vector3.new(d.X, 0, d.Z)
+					if flat.Magnitude > 0 and look.Magnitude > 0 then
+						local ang = math.deg(math.acos(math.clamp(flat.Unit:Dot(look.Unit), -1, 1)))
+						if ang <= c.sightHalf and losClear(eye, pp + Vector3.new(0, 2, 0)) then
+							sensed = true                            -- inside the sight cone with clear view
+						end
+					end
+				end
+				if sensed and dist < bestDist then best, bestDist = plr, dist end
+			end
+		end
+	end
+	return best, bestDist
+end
+
+-- ---- movement (kinematic) ------------------------------------------------------------
+local function moveToward(goal, speed, dt)
+	if held or not (monster and monster.PrimaryPart) then return end
+	local c = C()
+	local cur = monsterPos()
+	local flatGoal = Vector3.new(goal.X, c.groundY, goal.Z)
+	local d = Vector3.new(flatGoal.X - cur.X, 0, flatGoal.Z - cur.Z)
+	if d.Magnitude > 0.4 then
+		local step = math.min(d.Magnitude, speed * dt)
+		local np = Vector3.new(cur.X, c.groundY, cur.Z) + d.Unit * step
+		monsterLook = d.Unit
+		monster:PivotTo(CFrame.lookAt(np, np + d.Unit))
+	end
+end
+
+-- ---- catch ---------------------------------------------------------------------------
+local function doCatch(plr)
+	local c = C()
+	if os.clock() - lastCatch < c.catchCooldown then return end
+	lastCatch = os.clock()
+	MonsterSync:FireClient(plr, { kind = "jumpscare" })
+	Caught:Fire(plr)                                       -- your code hooks this
+	if c.resetOnCatch >= 1 then
+		local ch = plr.Character
+		local hum = ch and ch:FindFirstChildOfClass("Humanoid")
+		if hum then hum.Health = 0 end                     -- default: reset the caught player
+	end
+end
+
+-- ---- per-player + broadcast push -----------------------------------------------------
+local function nearHide(plr)
+	local pp = charPos(plr); if not pp then return false end
+	local c = C()
+	for _, h in ipairs(folderParts("HideSpots")) do
+		if (h.Position - pp).Magnitude <= c.hideRadius then return true end
+	end
+	return false
+end
+
+local function pushPlayer(plr)
+	if not plr or not plr.Parent then return end
+	local pp = charPos(plr)
+	local dist = pp and (pp - monsterPos()).Magnitude or nil
+	MonsterSync:FireClient(plr, { kind = "state", data = {
+		state = state,
+		targeted = (target == plr),
+		dist = dist,
+		hidden = HIDDEN[plr] == true,
+		canHide = nearHide(plr),
+	}})
+end
+
+local function pushAll()
+	for _, plr in ipairs(Players:GetPlayers()) do pushPlayer(plr) end
+end
+
+local function setChaseMusic(on)
+	for _, plr in ipairs(Players:GetPlayers()) do
+		MonsterSync:FireClient(plr, { kind = "music", on = on })
+	end
+end
+
+-- ---- state machine -------------------------------------------------------------------
+local function enterChase(plr)
+	if state ~= "CHASE" then setChaseMusic(true) end
+	state, target = "CHASE", plr
+	lastDetect = os.clock()
+end
+
+local function enterSearch()
+	if state == "CHASE" then setChaseMusic(false) end
+	state, target = "SEARCH", nil
+	searchStart = os.clock()
+end
+
+local function enterPatrol()
+	if state == "CHASE" then setChaseMusic(false) end
+	state, target = "PATROL", nil
+end
+
+local function nearestWaypointIndex()
+	local wps = folderParts("Waypoints")
+	if #wps == 0 then return 1 end
+	local mp = monsterPos(); local bi, bd = 1, math.huge
+	for i, w in ipairs(wps) do
+		local dd = (w.Position - mp).Magnitude
+		if dd < bd then bi, bd = i, dd end
+	end
+	return bi
+end
+
+local function step(dt)
+	if not (monster and monster.Parent and monster.PrimaryPart) then spawnMonster(); return end
+	local c = C()
+	for _, plr in ipairs(Players:GetPlayers()) do            -- a hidden player who walked off the spot is no longer hidden
+		if HIDDEN[plr] and not nearHide(plr) then HIDDEN[plr] = nil end
+	end
+	local seen = detect()
+
+	if state == "PATROL" then
+		if seen then enterChase(seen); pushAll(); return end
+		local wps = folderParts("Waypoints")
+		if #wps > 0 then
+			local wp = wps[((waypointIndex - 1) % #wps) + 1]
+			local mp = monsterPos()
+			if (Vector3.new(wp.Position.X - mp.X, 0, wp.Position.Z - mp.Z)).Magnitude <= 2.5 then
+				if arriveAt == 0 then arriveAt = os.clock() end
+				if os.clock() - arriveAt >= c.waypointPause then
+					waypointIndex = (waypointIndex % #wps) + 1
+					arriveAt = 0
+				end
+			else
+				arriveAt = 0
+				moveToward(wp.Position, c.patrolSpeed, dt)
+			end
+		end
+
+	elseif state == "CHASE" then
+		if seen then
+			target = seen
+			lastDetect = os.clock()
+			lastSeen = charPos(seen) or lastSeen
+		end
+		if target then
+			local pp = charPos(target)
+			-- catch ONLY a player we actually sense this tick (hidden / out of view = safe); otherwise
+			-- home toward the LAST-SEEN spot, so breaking line of sight or hiding really does lose it
+			if seen and not HIDDEN[target] and pp and (pp - monsterPos()).Magnitude <= c.catchRange then
+				doCatch(target)
+			else
+				moveToward(lastSeen or pp or monsterPos(), c.chaseSpeed, dt)
+			end
+		end
+		if os.clock() - lastDetect > c.loseTime then enterSearch() end
+
+	elseif state == "SEARCH" then
+		if seen then enterChase(seen); pushAll(); return end
+		if lastSeen then moveToward(lastSeen, c.searchSpeed, dt) end
+		if os.clock() - searchStart > c.searchTime then
+			waypointIndex = nearestWaypointIndex()
+			enterPatrol()
+		end
+	end
+	pushAll()
+end
+
+-- ---- client asks ---------------------------------------------------------------------
+MonsterEvent.OnServerInvoke = function(plr, cmd)
+	if not plr or not plr.Parent then return { ok = false } end
+	if cmd == "state" then
+		local pp = charPos(plr)
+		return {
+			state = state, targeted = (target == plr),
+			dist = pp and (pp - monsterPos()).Magnitude or nil,
+			hidden = HIDDEN[plr] == true, canHide = nearHide(plr),
+			monsterPos = { monsterPos().X, monsterPos().Y, monsterPos().Z },
+			monsterLook = { monsterLook.X, monsterLook.Y, monsterLook.Z },
+		}
+	elseif cmd == "hide" then
+		if nearHide(plr) then
+			HIDDEN[plr] = true
+			if target == plr then lastSeen = charPos(plr) or lastSeen; enterSearch() end   -- hiding drops an active chase now
+			pushPlayer(plr); return { ok = true }
+		end
+		return { ok = false, why = "no hide-spot near you" }
+	elseif cmd == "unhide" then
+		HIDDEN[plr] = nil; pushPlayer(plr); return { ok = true }
+	end
+	return { ok = false, why = "unknown command" }
+end
+
+-- SERVER-ONLY command bus (drive from your own code / cutscenes / testing):
+--   game.ServerScriptService.MonsterServer.MonsterAdmin:Fire("place", CFrame.new(x,y,z))
+--   ...:Fire("hold") / ("release") / ("spawn") / ("forcechase", player) / ("setstate","PATROL")
+Admin.Event:Connect(function(cmd, a)
+	if cmd == "place" and typeof(a) == "CFrame" and monster and monster.PrimaryPart then
+		monster:PivotTo(a); monsterLook = a.LookVector
+	elseif cmd == "hold" then held = true
+	elseif cmd == "release" then held = false
+	elseif cmd == "spawn" then spawnMonster()
+	elseif cmd == "setstate" and (a == "PATROL" or a == "SEARCH") then   -- CHASE needs a target; use forcechase
+		if a == "PATROL" then enterPatrol() else enterSearch() end
+	elseif cmd == "forcechase" and typeof(a) == "Instance" and a:IsA("Player") then
+		enterChase(a)
+	end
+end)
+
+Players.PlayerRemoving:Connect(function(plr)
+	HIDDEN[plr] = nil
+	if target == plr then enterSearch() end
+end)
+
+spawnMonster()
+
+-- ---- AI loop -------------------------------------------------------------------------
+task.spawn(function()
+	while true do
+		local c = C()
+		local dt = math.max(c.tick, 0.03)   -- guard a mis-set TickRate=0 from becoming a per-frame busy loop
+		task.wait(dt)
+		local ok, err = pcall(step, dt)
+		if not ok then warn("[MonsterServer] step error: " .. tostring(err)) end
+	end
+end)
+
+-- SAVE HOOK: this kit is stateless between servers by design (the monster resets on start).
+-- No external services are needed.
+print("[MonsterServer] ready - patrol/chase/search AI, sight cone + proximity, hide-spots")
+]]></ProtectedString>
+				<bool name="Disabled">false</bool>
+			</Properties>
+			<Item class="BindableEvent" referent="RBX2">
+				<Properties>
+					<string name="Name">MonsterAdmin</string>
+				</Properties>
+			</Item>
+			<Item class="BindableEvent" referent="RBX3">
+				<Properties>
+					<string name="Name">MonsterCaught</string>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX4">
+			<Properties>
+				<string name="Name">MonsterClient</string>
+				<ProtectedString name="Source"><![CDATA[-- MonsterSystem - MonsterClient  (chase HUD: monster state, danger meter, hide, jumpscare)
+-- Shows the monster's current state (PATROL / SEARCH / CHASE), how close it is (danger bar),
+-- whether you are hidden, and a HIDE button when you're next to a hide-spot. Flashes on a
+-- jumpscare and shows a chase-music cue. The server owns the monster and all detection; this
+-- only displays and asks to hide.
+
+local RS      = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local plr     = Players.LocalPlayer
+
+local MonsterEvent = RS:WaitForChild("MonsterEvent")
+local MonsterSync  = RS:WaitForChild("MonsterSync")
+
+local WHITE = Color3.fromRGB(240, 240, 245)
+local DIM   = Color3.fromRGB(150, 150, 160)
+local PANEL = Color3.fromRGB(18, 16, 20)
+local COL   = Color3.fromRGB(30, 27, 33)
+local GREEN = Color3.fromRGB(96, 196, 120)
+local GOLD  = Color3.fromRGB(240, 196, 90)
+local RED   = Color3.fromRGB(220, 70, 66)
+local BLUE  = Color3.fromRGB(120, 170, 240)
+
+local pg = plr:WaitForChild("PlayerGui")
+local old = pg:FindFirstChild("MonsterHUD"); if old then old:Destroy() end
+local gui = Instance.new("ScreenGui")
+gui.Name = "MonsterHUD"; gui.ResetOnSpawn = false; gui.IgnoreGuiInset = true
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling; gui.Parent = pg
+
+-- optional music the buyer configures (set its SoundId in the kit). Plays while chased.
+local music = Instance.new("Sound"); music.Name = "ChaseMusic"; music.Looped = true
+music.Volume = 0.5; music.Parent = gui
+
+local function corner(o, r) local c = Instance.new("UICorner"); c.CornerRadius = UDim.new(0, r or 6); c.Parent = o end
+
+-- full-screen jumpscare flash overlay (hidden by default)
+local flash = Instance.new("Frame")
+flash.Size = UDim2.new(1, 0, 1, 0); flash.BackgroundColor3 = Color3.fromRGB(120, 0, 0)
+flash.BackgroundTransparency = 1; flash.BorderSizePixel = 0; flash.ZIndex = 50; flash.Parent = gui
+
+local W, H = 380, 250
+local panel = Instance.new("Frame")
+panel.Size = UDim2.new(0, W, 0, H); panel.AnchorPoint = Vector2.new(1, 1)
+-- lower right: off the middle of the screen (where the monster is), below Roblox's player list (top right)
+-- and above the touch jump button (bottom right on phones)
+panel.Position = UDim2.new(1, -16, 1, -150)
+panel.BackgroundColor3 = PANEL; panel.BackgroundTransparency = 0.08; panel.BorderSizePixel = 0
+panel.Parent = gui; corner(panel, 12)
+local fit = Instance.new("UIScale"); fit.Parent = panel -- smaller on smaller screens
+local function fitPanel()
+	local h = gui.AbsoluteSize.Y
+	if h > 0 then fit.Scale = math.clamp(h / 900, 0.6, 0.85) end
+end
+fitPanel()
+gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(fitPanel)
+
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1, -28, 0, 24); title.Position = UDim2.new(0, 14, 0, 10)
+title.BackgroundTransparency = 1; title.Font = Enum.Font.GothamBold; title.TextSize = 16
+title.TextColor3 = WHITE; title.TextXAlignment = Enum.TextXAlignment.Left; title.Text = "MONSTER"
+title.Parent = panel
+
+local musicCue = Instance.new("TextLabel")
+musicCue.Size = UDim2.new(0, 130, 0, 20); musicCue.Position = UDim2.new(1, -144, 0, 12)
+musicCue.BackgroundTransparency = 1; musicCue.Font = Enum.Font.GothamBold; musicCue.TextSize = 12
+musicCue.TextColor3 = RED; musicCue.TextXAlignment = Enum.TextXAlignment.Right
+musicCue.Text = ""; musicCue.Parent = panel
+
+-- big STATE badge
+local badge = Instance.new("TextLabel")
+badge.Size = UDim2.new(1, -28, 0, 56); badge.Position = UDim2.new(0, 14, 0, 40)
+badge.BackgroundColor3 = COL; badge.BorderSizePixel = 0; badge.Font = Enum.Font.GothamBlack
+badge.TextSize = 30; badge.TextColor3 = GREEN; badge.Text = "PATROL"; badge.Parent = panel; corner(badge, 10)
+
+local subLabel = Instance.new("TextLabel")
+subLabel.Size = UDim2.new(1, -28, 0, 16); subLabel.Position = UDim2.new(0, 14, 0, 100)
+subLabel.BackgroundTransparency = 1; subLabel.Font = Enum.Font.Gotham; subLabel.TextSize = 12
+subLabel.TextColor3 = DIM; subLabel.TextXAlignment = Enum.TextXAlignment.Left
+subLabel.Text = "The monster is patrolling."; subLabel.Parent = panel
+
+-- danger bar (closer = fuller + redder)
+local dangerBG = Instance.new("Frame")
+dangerBG.Size = UDim2.new(1, -28, 0, 20); dangerBG.Position = UDim2.new(0, 14, 0, 122)
+dangerBG.BackgroundColor3 = COL; dangerBG.BorderSizePixel = 0; dangerBG.Parent = panel; corner(dangerBG, 6)
+local dangerFill = Instance.new("Frame")
+dangerFill.Size = UDim2.new(0.2, 0, 1, 0); dangerFill.BackgroundColor3 = GREEN
+dangerFill.BorderSizePixel = 0; dangerFill.Parent = dangerBG; corner(dangerFill, 6)
+local dangerTxt = Instance.new("TextLabel")
+dangerTxt.Size = UDim2.new(1, 0, 1, 0); dangerTxt.BackgroundTransparency = 1
+dangerTxt.Font = Enum.Font.GothamBold; dangerTxt.TextSize = 12; dangerTxt.TextColor3 = WHITE
+dangerTxt.Text = "DANGER"; dangerTxt.ZIndex = 2; dangerTxt.Parent = dangerBG
+
+-- hidden indicator
+local hiddenLbl = Instance.new("TextLabel")
+hiddenLbl.Size = UDim2.new(1, -28, 0, 18); hiddenLbl.Position = UDim2.new(0, 14, 0, 150)
+hiddenLbl.BackgroundTransparency = 1; hiddenLbl.Font = Enum.Font.GothamBold; hiddenLbl.TextSize = 13
+hiddenLbl.TextColor3 = BLUE; hiddenLbl.TextXAlignment = Enum.TextXAlignment.Center
+hiddenLbl.Text = ""; hiddenLbl.Parent = panel
+
+-- hide / leave button
+local hideB = Instance.new("TextButton")
+hideB.Size = UDim2.new(1, -28, 0, 40); hideB.Position = UDim2.new(0, 14, 1, -52)
+hideB.BackgroundColor3 = COL; hideB.BorderSizePixel = 0; hideB.Font = Enum.Font.GothamBold
+hideB.TextSize = 15; hideB.TextColor3 = DIM; hideB.AutoButtonColor = true
+hideB.Text = "Move next to a hide-spot to hide"; hideB.Parent = panel; corner(hideB, 8)
+
+local isHidden = false
+hideB.Activated:Connect(function()
+	if isHidden then MonsterEvent:InvokeServer("unhide") else MonsterEvent:InvokeServer("hide") end
+end)
+
+local function render(d)
+	if type(d) ~= "table" then return end
+	local st = d.state or "PATROL"
+	isHidden = d.hidden == true
+	if st == "CHASE" then
+		badge.Text = "CHASE"; badge.TextColor3 = RED
+		subLabel.Text = d.targeted and "It has seen YOU - run!" or "The monster is chasing."
+	elseif st == "SEARCH" then
+		badge.Text = "SEARCH"; badge.TextColor3 = GOLD
+		subLabel.Text = "It's looking for you near where it last saw you."
+	else
+		badge.Text = "PATROL"; badge.TextColor3 = GREEN
+		subLabel.Text = "The monster is patrolling."
+	end
+	-- danger from distance (0..1)
+	local dist = d.dist
+	local frac = 0.1
+	if dist then frac = math.clamp(1 - (dist / 60), 0.03, 1) end
+	dangerFill.Size = UDim2.new(frac, 0, 1, 0)
+	dangerFill.BackgroundColor3 = frac > 0.66 and RED or (frac > 0.33 and GOLD or GREEN)
+	dangerTxt.Text = dist and ("DANGER  " .. math.floor(dist) .. " studs") or "DANGER"
+	-- hidden + hide button
+	if isHidden then
+		hiddenLbl.Text = "HIDDEN - it can't sense you"
+		hideB.Text = "LEAVE HIDE-SPOT"; hideB.TextColor3 = WHITE; hideB.BackgroundColor3 = BLUE
+	else
+		hiddenLbl.Text = ""
+		if d.canHide then
+			hideB.Text = "HIDE"; hideB.TextColor3 = Color3.fromRGB(16, 20, 30); hideB.BackgroundColor3 = BLUE
+		else
+			hideB.Text = "Move next to a hide-spot to hide"; hideB.TextColor3 = DIM; hideB.BackgroundColor3 = COL
+		end
+	end
+end
+
+local function doFlash()
+	flash.BackgroundTransparency = 0.15
+	task.spawn(function()
+		for i = 1, 20 do
+			flash.BackgroundTransparency = 0.15 + (i / 20) * 0.85
+			task.wait(0.05)
+		end
+		flash.BackgroundTransparency = 1
+	end)
+end
+
+MonsterSync.OnClientEvent:Connect(function(msg)
+	if type(msg) ~= "table" then return end
+	if msg.kind == "state" and msg.data then render(msg.data)
+	elseif msg.kind == "jumpscare" then doFlash()
+	elseif msg.kind == "music" then
+		musicCue.Text = msg.on and "\u{266A} chase" or ""
+		if msg.on then
+			if music.SoundId ~= "" then music:Play() end
+		else
+			music:Stop()
+		end
+	end
+end)
+
+-- the patrol route's markers are for laying the route out in Studio: hide them from players while the game runs
+task.spawn(function()
+	local route = workspace:WaitForChild("Waypoints", 10)
+	if not route then return end
+	local function hideMarker(d) if d:IsA("BasePart") then d.Transparency = 1 end end
+	for _, d in ipairs(route:GetDescendants()) do hideMarker(d) end
+	route.DescendantAdded:Connect(hideMarker)
+end)
+
+local ok, s0 = pcall(function() return MonsterEvent:InvokeServer("state") end)
+if ok and s0 then render(s0) end
+print("[MonsterClient] HUD ready")
+]]></ProtectedString>
+				<bool name="Disabled">false</bool>
+			</Properties>
+		</Item>
+		<Item class="RemoteFunction" referent="RBX5">
+			<Properties>
+				<string name="Name">MonsterEvent</string>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBX6">
+			<Properties>
+				<string name="Name">MonsterSync</string>
+			</Properties>
+		</Item>
+		<Item class="Folder" referent="RBX7">
+			<Properties>
+				<string name="Name">Config</string>
+			</Properties>
+			<Item class="NumberValue" referent="RBX8">
+				<Properties>
+					<string name="Name">SightRange</string>
+					<float name="Value">60.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX9">
+				<Properties>
+					<string name="Name">SightHalfAngleDeg</string>
+					<float name="Value">55.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX10">
+				<Properties>
+					<string name="Name">HearingRadius</string>
+					<float name="Value">22.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX11">
+				<Properties>
+					<string name="Name">PatrolSpeed</string>
+					<float name="Value">9.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX12">
+				<Properties>
+					<string name="Name">ChaseSpeed</string>
+					<float name="Value">19.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX13">
+				<Properties>
+					<string name="Name">SearchSpeed</string>
+					<float name="Value">12.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX14">
+				<Properties>
+					<string name="Name">LoseTime</string>
+					<float name="Value">3.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX15">
+				<Properties>
+					<string name="Name">SearchTime</string>
+					<float name="Value">4.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX16">
+				<Properties>
+					<string name="Name">CatchRange</string>
+					<float name="Value">6.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX17">
+				<Properties>
+					<string name="Name">HideRadius</string>
+					<float name="Value">12.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX18">
+				<Properties>
+					<string name="Name">WaypointPause</string>
+					<float name="Value">1.200000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX19">
+				<Properties>
+					<string name="Name">TickRate</string>
+					<float name="Value">0.150000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX20">
+				<Properties>
+					<string name="Name">ResetOnCatch</string>
+					<float name="Value">1.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX21">
+				<Properties>
+					<string name="Name">CatchCooldown</string>
+					<float name="Value">3.000000</float>
+				</Properties>
+			</Item>
+			<Item class="NumberValue" referent="RBX22">
+				<Properties>
+					<string name="Name">GroundY</string>
+					<float name="Value">3.000000</float>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX23">
+			<Properties>
+				<string name="Name">Waypoints</string>
+			</Properties>
+			<Item class="Part" referent="RBX24">
+				<Properties>
+					<string name="Name">Waypoint1</string>
+					<Vector3 name="size"><X>2.000000</X><Y>0.400000</Y><Z>2.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>28.000000</X><Y>3.000000</Y><Z>28.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.350000</R><G>0.800000</G><B>1.000000</B></Color3>
+					<float name="Transparency">0.550000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX25">
+				<Properties>
+					<string name="Name">Waypoint2</string>
+					<Vector3 name="size"><X>2.000000</X><Y>0.400000</Y><Z>2.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>28.000000</X><Y>3.000000</Y><Z>-28.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.350000</R><G>0.800000</G><B>1.000000</B></Color3>
+					<float name="Transparency">0.550000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX26">
+				<Properties>
+					<string name="Name">Waypoint3</string>
+					<Vector3 name="size"><X>2.000000</X><Y>0.400000</Y><Z>2.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>-28.000000</X><Y>3.000000</Y><Z>-28.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.350000</R><G>0.800000</G><B>1.000000</B></Color3>
+					<float name="Transparency">0.550000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX27">
+				<Properties>
+					<string name="Name">Waypoint4</string>
+					<Vector3 name="size"><X>2.000000</X><Y>0.400000</Y><Z>2.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>-28.000000</X><Y>3.000000</Y><Z>28.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.350000</R><G>0.800000</G><B>1.000000</B></Color3>
+					<float name="Transparency">0.550000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX28">
+			<Properties>
+				<string name="Name">HideSpots</string>
+			</Properties>
+			<Item class="Part" referent="RBX29">
+				<Properties>
+					<string name="Name">HideSpot1</string>
+					<Vector3 name="size"><X>6.000000</X><Y>8.000000</Y><Z>6.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>3.000000</Y><Z>40.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.300000</R><G>0.500000</G><B>0.950000</B></Color3>
+					<float name="Transparency">0.650000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX30">
+				<Properties>
+					<string name="Name">HideSpot2</string>
+					<Vector3 name="size"><X>6.000000</X><Y>8.000000</Y><Z>6.000000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>-40.000000</X><Y>3.000000</Y><Z>0.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<Color3 name="Color"><R>0.300000</R><G>0.500000</G><B>0.950000</B></Color3>
+					<float name="Transparency">0.650000</float>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<token name="Material">288</token>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="StringValue" referent="RBX31">
+			<Properties>
+				<string name="Name">HOW_TO_USE</string>
+				<string name="Value">HORROR MONSTER CHASE AI - PATROL / SIGHT + PROXIMITY / CHASE / SEARCH / HIDE
+
+SETUP (no code):
+1. Put 'MonsterEvent', 'MonsterSync' and the 'Config' folder in game.ReplicatedStorage.
+2. Put the 'Waypoints' and 'HideSpots' folders in game.Workspace - drag their markers to lay out
+   the patrol route (its markers hide themselves while the game runs) and the spots
+   players can hide at.
+3. Put 'MonsterServer' Script (it carries MonsterAdmin + MonsterCaught) in game.ServerScriptService.
+4. Put 'MonsterClient' LocalScript in game.StarterPlayer.StarterPlayerScripts.
+5. Press Play. A red placeholder monster patrols the waypoints and hunts you.
+
+HOW IT HUNTS: it walks the waypoint loop (PATROL). It CHASES anyone it sees inside its sight cone
+with a clear line of view, or senses within close range. Lose it (break line of sight, get far, or
+HIDE at a hide-spot) and it heads to where it last saw you (SEARCH), then goes back to patrol. Get
+caught and it triggers a jumpscare + the MonsterCaught event (by default the caught player resets).
+Entering/leaving a chase fires a music cue on the client (set ChaseMusic.SoundId to your track).
+
+TUNE (no code): the Config NumberValues - sight range/angle, hearing radius, patrol/chase/search
+speeds, lose + search time, catch range, hide radius. USE YOUR OWN MONSTER: add a Model (with at
+least one Part) named 'MonsterRig' under MonsterServer to replace the placeholder. DRIVE from your code:
+    game.ServerScriptService.MonsterServer.MonsterAdmin:Fire('forcechase', player)
+    game.ServerScriptService.MonsterServer.MonsterCaught.Event:Connect(function(plr) ... end)
+
+SESSION only - stateless between servers by design. No external services. Delete this note.</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>

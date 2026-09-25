@@ -1,0 +1,530 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<Item class="Model" referent="RBX0">
+		<Properties>
+			<string name="Name">NotificationKit</string>
+		</Properties>
+		<Item class="Model" referent="RBX1">
+			<Properties>
+				<string name="Name">DisplayBell</string>
+				<Ref name="PrimaryPart">RBX2</Ref>
+			</Properties>
+			<Item class="Part" referent="RBX2">
+				<Properties>
+					<string name="Name">Dome</string>
+					<Vector3 name="size"><X>1.600000</X><Y>1.300000</Y><Z>1.600000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>1.100000</Y><Z>0.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="Massless">true</bool>
+					<token name="Shape">0</token>
+					<token name="Material">1088</token>
+					<int name="BorderSizePixel">0</int>
+					<int name="Color3uint8">14330938</int>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX3">
+				<Properties>
+					<string name="Name">Skirt</string>
+					<Vector3 name="size"><X>1.900000</X><Y>1.000000</Y><Z>1.900000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>0.550000</Y><Z>0.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="Massless">true</bool>
+					<token name="Shape">0</token>
+					<token name="Material">1088</token>
+					<int name="BorderSizePixel">0</int>
+					<int name="Color3uint8">14330938</int>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX4">
+				<Properties>
+					<string name="Name">Lip</string>
+					<Vector3 name="size"><X>2.100000</X><Y>0.350000</Y><Z>2.100000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>0.250000</Y><Z>0.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="Massless">true</bool>
+					<token name="Shape">0</token>
+					<token name="Material">1088</token>
+					<int name="BorderSizePixel">0</int>
+					<int name="Color3uint8">9859106</int>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX5">
+				<Properties>
+					<string name="Name">Clapper</string>
+					<Vector3 name="size"><X>0.500000</X><Y>0.500000</Y><Z>0.500000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>0.050000</Y><Z>0.350000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="Massless">true</bool>
+					<token name="Shape">0</token>
+					<token name="Material">1088</token>
+					<int name="BorderSizePixel">0</int>
+					<int name="Color3uint8">9859106</int>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX6">
+				<Properties>
+					<string name="Name">Knob</string>
+					<Vector3 name="size"><X>0.500000</X><Y>0.400000</Y><Z>0.500000</Z></Vector3>
+					<CoordinateFrame name="CFrame"><X>0.000000</X><Y>1.850000</Y><Z>0.000000</Z><R00>1.000000</R00><R01>0.000000</R01><R02>0.000000</R02><R10>0.000000</R10><R11>1.000000</R11><R12>0.000000</R12><R20>0.000000</R20><R21>0.000000</R21><R22>1.000000</R22></CoordinateFrame>
+					<bool name="Anchored">true</bool>
+					<bool name="CanCollide">false</bool>
+					<bool name="CanQuery">false</bool>
+					<bool name="CanTouch">false</bool>
+					<bool name="Massless">true</bool>
+					<token name="Shape">0</token>
+					<token name="Material">1088</token>
+					<int name="BorderSizePixel">0</int>
+					<int name="Color3uint8">9859106</int>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="LocalScript" referent="RBX7">
+			<Properties>
+				<string name="Name">NotificationClient</string>
+				<ProtectedString name="Source"><![CDATA[--!nonstrict
+--[[  NOTIFICATION SYSTEM KIT  --------------------------------------------------
+
+  A drop-in toast / notification system. Fire an event with a table and an
+  animated toast slides in, stacks, counts down and dismisses itself. Four tiers
+  (Info / Success / Warning / Error), a queue so bursts don't overlap, optional
+  sound, and both a server->client and a client->client trigger.
+
+  SETUP  (drag three things, no code)
+    1. Put this LocalScript in            StarterGui   (or StarterPlayerScripts).
+    2. Put the RemoteEvent  "NotificationEvent"  in  ReplicatedStorage  (server->client).
+    3. Put the BindableEvent "NotificationLocal" in  ReplicatedStorage  (client->client).
+
+  SHOW A NOTIFICATION
+    From a client LocalScript:
+      game.ReplicatedStorage.NotificationLocal:Fire({
+        Title = "Saved", Text = "Your progress is safe.",
+        Type = "Success", Duration = 4 })
+
+    From a server Script:
+      game.ReplicatedStorage.NotificationEvent:FireClient(player, {
+        Title = "Welcome", Text = "Have fun!", Type = "Info" })
+      -- or  :FireAllClients({ ... })
+
+  DATA FIELDS
+    Title     headline text
+    Text      body text (wraps)
+    Type      "Info" | "Success" | "Warning" | "Error"   (default Info)
+    Duration  seconds on screen (default DefaultDuration)
+    Color     Color3 accent override
+    Icon      text/emoji override for the badge
+
+  CONFIG  (Attributes on this script — edit in the Properties window, no code)
+    Position   "TopCenter" | "TopRight" | "TopLeft" | "BottomRight" | "BottomLeft"
+               | "BottomCenter"                               (default TopCenter)
+               TopRight sits under Roblox's player list once a game has leaderstats;
+               a top column that meets Roblox's chat window starts just below it.
+    MaxVisible number shown at once, the rest queue           (default 4)
+    DefaultDuration, Width, AnimTime, ShowProgress, SoundId
+    ColorInfo / ColorSuccess / ColorWarning / ColorError      (Color3)
+    Debug      print lifecycle lines for testing              (default false)
+
+  It is ONE LocalScript - no extra modules, no web calls and no saved-data
+  services - so it stays lightweight and self-contained.
+----------------------------------------------------------------------------- ]]
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local SoundService = game:GetService("SoundService")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- ---- config -----------------------------------------------------------------
+local function attr(name, default)
+	local v = script:GetAttribute(name)
+	if v == nil then return default end
+	if typeof(v) ~= typeof(default) then
+		if type(default) == "string" then return tostring(v) end
+		if type(default) == "number" then
+			local n = tonumber(v)
+			if n then return n end
+		end
+		return default
+	end
+	return v
+end
+
+local POSITION = attr("Position", "TopCenter")
+local MAX_VISIBLE = attr("MaxVisible", 4)
+local DEFAULT_DURATION = attr("DefaultDuration", 4)
+local WIDTH = attr("Width", 300)
+local ANIM = attr("AnimTime", 0.35)
+local SHOW_PROGRESS = attr("ShowProgress", true)
+local SOUND_ID = attr("SoundId", "")
+local DEBUG = attr("Debug", false)
+
+local TIERS = {
+	Info    = { color = attr("ColorInfo",    Color3.fromRGB(56, 150, 255)), icon = "i" },
+	Success = { color = attr("ColorSuccess", Color3.fromRGB(64, 196, 116)), icon = "\u{2713}" },
+	Warning = { color = attr("ColorWarning", Color3.fromRGB(240, 182, 48)), icon = "!" },
+	Error   = { color = attr("ColorError",   Color3.fromRGB(240, 84, 84)),  icon = "\u{2715}" },
+}
+
+local BG = Color3.fromRGB(28, 31, 40)
+local TITLE_COL = Color3.fromRGB(244, 246, 252)
+local TEXT_COL = Color3.fromRGB(198, 204, 216)
+
+local function dbg(...)
+	if DEBUG then print("NKDIAG", ...) end
+end
+
+-- ---- host + stacking column -------------------------------------------------
+local topSide = (POSITION == "TopRight" or POSITION == "TopLeft" or POSITION == "TopCenter")
+local rightSide = (POSITION == "TopRight" or POSITION == "BottomRight")
+local centerSide = (POSITION == "TopCenter" or POSITION == "BottomCenter")
+
+for _, old in ipairs(playerGui:GetChildren()) do -- every stale copy, and only ScreenGuis (not a same-named object)
+	if old.Name == "NotificationKit" and old:IsA("ScreenGui") then old:Destroy() end
+end
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "NotificationKit"
+gui.ResetOnSpawn = false
+gui.DisplayOrder = 1000000
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+gui.Parent = playerGui
+
+local holder = Instance.new("Frame")
+holder.Name = "Holder"
+holder.BackgroundTransparency = 1
+holder.Size = UDim2.fromOffset(WIDTH, 0)
+holder.AutomaticSize = Enum.AutomaticSize.Y
+local margin = 16
+local ax = rightSide and 1 or (centerSide and 0.5 or 0)
+local ay = topSide and 0 or 1
+holder.AnchorPoint = Vector2.new(ax, ay)
+holder.Position = UDim2.new(ax, rightSide and -margin or (centerSide and 0 or margin),
+	ay, topSide and margin or -margin)
+holder.Parent = gui
+
+-- Roblox's chat window covers the top-left of the screen and is drawn above every game GUI, so a top column whose
+-- first toast would start under it starts just below it instead, and moves back when the chat is off or out of
+-- the way. (TopCenter only meets it on narrower screens.)
+if topSide then
+	local TextChatService = game:GetService("TextChatService")
+	local chatParts = { -- the message list and the input bar under it report their rectangles separately
+		TextChatService:FindFirstChildOfClass("ChatWindowConfiguration"),
+		TextChatService:FindFirstChildOfClass("ChatInputBarConfiguration"),
+	}
+	local function chatRect() -- union of both parts; same coordinates as this ScreenGui (both start below the top bar)
+		local x1, y1, x2, y2
+		local found, shown = false, false
+		for _, part in pairs(chatParts) do
+			found = true
+			if part.Enabled then
+				shown = true
+				local p, s = part.AbsolutePosition, part.AbsoluteSize
+				if s.Y > 0 then
+					x1, y1 = math.min(x1 or p.X, p.X), math.min(y1 or p.Y, p.Y)
+					x2, y2 = math.max(x2 or p.X + s.X, p.X + s.X), math.max(y2 or p.Y + s.Y, p.Y + s.Y)
+				end
+			end
+		end
+		if found and not shown then return nil end -- chat turned off: nothing to avoid
+		if not x1 then return 0, 0, 440, 200 end -- not measured yet: assume Roblox's default top-left chat
+		return x1, y1, x2, y2
+	end
+	local function placeHolder()
+		local screen = gui.AbsoluteSize
+		local left = rightSide and screen.X - margin - WIDTH or (centerSide and (screen.X - WIDTH) / 2 or margin)
+		local y = margin
+		local x1, y1, x2, y2 = chatRect()
+		if x1 and x1 < left + WIDTH and x2 > left and y1 < margin + 90 and y2 > margin then
+			y = y2 + 12
+		end
+		holder.Position = UDim2.new(ax, rightSide and -margin or (centerSide and 0 or margin), 0, y)
+	end
+	placeHolder()
+	gui:GetPropertyChangedSignal("AbsoluteSize"):Connect(placeHolder)
+	for _, part in pairs(chatParts) do
+		for _, prop in ipairs({ "AbsoluteSize", "AbsolutePosition", "Enabled" }) do
+			part:GetPropertyChangedSignal(prop):Connect(placeHolder)
+		end
+	end
+end
+
+local layout = Instance.new("UIListLayout")
+layout.FillDirection = Enum.FillDirection.Vertical
+layout.SortOrder = Enum.SortOrder.LayoutOrder
+layout.Padding = UDim.new(0, 8)
+layout.HorizontalAlignment = rightSide and Enum.HorizontalAlignment.Right
+	or (centerSide and Enum.HorizontalAlignment.Center or Enum.HorizontalAlignment.Left)
+layout.VerticalAlignment = topSide and Enum.VerticalAlignment.Top or Enum.VerticalAlignment.Bottom
+layout.Parent = holder
+
+-- ---- one toast --------------------------------------------------------------
+local ICON_BOX = 26
+local PAD = 12
+local ACCENT_W = 5
+local TEXT_X = ACCENT_W + PAD + ICON_BOX + 10
+local TEXT_W = WIDTH - TEXT_X - PAD
+
+local function buildCard(data, tier, color)
+	local card = Instance.new("CanvasGroup")
+	card.Name = "Toast"
+	card.Size = UDim2.fromOffset(WIDTH, 0)
+	card.AutomaticSize = Enum.AutomaticSize.Y
+	card.BackgroundColor3 = BG
+	card.BorderSizePixel = 0
+	card.GroupTransparency = 1        -- fade in from invisible
+	local corner = Instance.new("UICorner")
+	corner.CornerRadius = UDim.new(0, 8)
+	corner.Parent = card
+
+	local accent = Instance.new("Frame")
+	accent.Name = "Accent"
+	accent.Size = UDim2.new(0, ACCENT_W, 1, 0)
+	accent.BackgroundColor3 = color
+	accent.BorderSizePixel = 0
+	accent.Parent = card
+
+	local badge = Instance.new("Frame")
+	badge.Name = "Badge"
+	badge.Size = UDim2.fromOffset(ICON_BOX, ICON_BOX)
+	badge.Position = UDim2.fromOffset(ACCENT_W + PAD, PAD)
+	badge.BackgroundColor3 = color
+	badge.BorderSizePixel = 0
+	local bc = Instance.new("UICorner")
+	bc.CornerRadius = UDim.new(1, 0)
+	bc.Parent = badge
+	badge.Parent = card
+	local bl = Instance.new("TextLabel")
+	bl.BackgroundTransparency = 1
+	bl.Size = UDim2.fromScale(1, 1)
+	bl.Font = Enum.Font.GothamBold
+	bl.Text = tostring(data.Icon or tier.icon)
+	bl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	bl.TextSize = 16
+	bl.Parent = badge
+
+	local col = Instance.new("Frame")
+	col.Name = "Text"
+	col.BackgroundTransparency = 1
+	col.Position = UDim2.fromOffset(TEXT_X, PAD)
+	col.Size = UDim2.fromOffset(TEXT_W, 0)
+	col.AutomaticSize = Enum.AutomaticSize.Y
+	col.Parent = card
+	local cl = Instance.new("UIListLayout")
+	cl.FillDirection = Enum.FillDirection.Vertical
+	cl.SortOrder = Enum.SortOrder.LayoutOrder
+	cl.Padding = UDim.new(0, 2)
+	cl.Parent = col
+
+	local title = Instance.new("TextLabel")
+	title.Name = "Title"
+	title.BackgroundTransparency = 1
+	title.Size = UDim2.fromOffset(TEXT_W, 0)
+	title.AutomaticSize = Enum.AutomaticSize.Y
+	title.Font = Enum.Font.GothamBold
+	title.Text = tostring(data.Title or "Notification")
+	title.TextColor3 = TITLE_COL
+	title.TextSize = 16
+	title.TextXAlignment = Enum.TextXAlignment.Left
+	title.TextWrapped = true
+	title.LayoutOrder = 1
+	title.Parent = col
+
+	local body = tostring(data.Text or "")
+	if body ~= "" then
+		local msg = Instance.new("TextLabel")
+		msg.Name = "Body"
+		msg.BackgroundTransparency = 1
+		msg.Size = UDim2.fromOffset(TEXT_W, 0)
+		msg.AutomaticSize = Enum.AutomaticSize.Y
+		msg.Font = Enum.Font.Gotham
+		msg.Text = body
+		msg.TextColor3 = TEXT_COL
+		msg.TextSize = 14
+		msg.TextXAlignment = Enum.TextXAlignment.Left
+		msg.TextWrapped = true
+		msg.LayoutOrder = 2
+		msg.Parent = col
+	end
+
+	-- bottom padding so the text never touches the card edge / progress bar
+	local padB = Instance.new("Frame")
+	padB.Name = "PadBottom"
+	padB.BackgroundTransparency = 1
+	padB.Size = UDim2.fromOffset(1, PAD)
+	padB.LayoutOrder = 3
+	padB.Parent = col
+
+	local progress
+	if SHOW_PROGRESS then
+		progress = Instance.new("Frame")
+		progress.Name = "Progress"
+		progress.AnchorPoint = Vector2.new(0, 1)
+		progress.Position = UDim2.fromScale(0, 1)
+		progress.Size = UDim2.new(1, 0, 0, 3)
+		progress.BackgroundColor3 = color
+		progress.BorderSizePixel = 0
+		progress.Parent = card
+	end
+
+	return card, progress
+end
+
+-- ---- queue + show -----------------------------------------------------------
+local queue = {}
+local visibleCount = 0
+local seqNo = 0
+
+local function playSound()
+	if SOUND_ID ~= "" then
+		local s = Instance.new("Sound")
+		s.SoundId = SOUND_ID
+		s.Volume = 0.5
+		s.Parent = SoundService
+		s:Play()
+		task.delay(3, function() s:Destroy() end)
+	end
+end
+
+local showNext
+
+local function present(data)
+	local tier = TIERS[data.Type] or TIERS.Info
+	local color = data.Color or tier.color
+	local duration = tonumber(data.Duration) or DEFAULT_DURATION
+
+	local card, progress = buildCard(data, tier, color)
+	seqNo += 1
+	card.LayoutOrder = topSide and seqNo or -seqNo
+	card.Parent = holder
+	playSound()
+	dbg("show", data.Type or "Info", "|", tostring(data.Title), "visible=" .. visibleCount)
+
+	TweenService:Create(card, TweenInfo.new(ANIM, Enum.EasingStyle.Quart),
+		{ GroupTransparency = 0 }):Play()
+	if progress then
+		TweenService:Create(progress, TweenInfo.new(duration, Enum.EasingStyle.Linear),
+			{ Size = UDim2.new(0, 0, 0, 3) }):Play()
+	end
+
+	task.delay(duration, function()
+		local out = TweenService:Create(card, TweenInfo.new(ANIM, Enum.EasingStyle.Quart),
+			{ GroupTransparency = 1 })
+		out.Completed:Connect(function()
+			card:Destroy()
+			visibleCount -= 1
+			dbg("dismiss", tostring(data.Title), "visible=" .. visibleCount, "queued=" .. #queue)
+			showNext()
+		end)
+		out:Play()
+	end)
+end
+
+function showNext()
+	if visibleCount >= MAX_VISIBLE then return end
+	local data = table.remove(queue, 1)
+	if not data then return end
+	visibleCount += 1
+	local ok, err = pcall(present, data)
+	if not ok then
+		visibleCount -= 1
+		warn("[NotificationKit] a notification could not be drawn: " .. tostring(err))
+		task.defer(showNext) -- keep draining the queue after a failed toast
+	end
+end
+
+local function enqueue(data)
+	if typeof(data) ~= "table" then
+		dbg("ignored non-table payload")
+		return
+	end
+	if #queue >= 50 then table.remove(queue, 1) end
+	table.insert(queue, data)
+	dbg("enqueue", tostring(data.Title), "queue=" .. #queue)
+	showNext()
+end
+
+-- ---- wire up the triggers ---------------------------------------------------
+local remote = ReplicatedStorage:WaitForChild("NotificationEvent", 5)
+if remote and remote:IsA("RemoteEvent") then
+	remote.OnClientEvent:Connect(enqueue)
+	dbg("connected RemoteEvent")
+end
+local bindable = ReplicatedStorage:WaitForChild("NotificationLocal", 5)
+if bindable and bindable:IsA("BindableEvent") then
+	bindable.Event:Connect(enqueue)
+	dbg("connected BindableEvent")
+end
+
+if not remote and not bindable then
+	warn("[NotificationKit] Put a RemoteEvent 'NotificationEvent' and/or a "
+		.. "BindableEvent 'NotificationLocal' in ReplicatedStorage to trigger "
+		.. "notifications - see the HOW_TO_USE note.")
+end
+
+dbg("ready position=" .. POSITION, "max=" .. MAX_VISIBLE)
+]]></ProtectedString>
+				<bool name="Disabled">false</bool>
+				<BinaryString name="AttributesSerialize">BwAAAAgAAABQb3NpdGlvbgIJAAAAVG9wQ2VudGVyCgAAAE1heFZpc2libGUGAAAAAAAAEEAPAAAARGVmYXVsdER1cmF0aW9uBgAAAAAAABBABQAAAFdpZHRoBgAAAAAAwHJACAAAAEFuaW1UaW1lBmZmZmZmZtY/DAAAAFNob3dQcm9ncmVzcwMBBwAAAFNvdW5kSWQCAAAAAA==</BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBX8">
+			<Properties>
+				<string name="Name">NotificationEvent</string>
+			</Properties>
+		</Item>
+		<Item class="BindableEvent" referent="RBX9">
+			<Properties>
+				<string name="Name">NotificationLocal</string>
+			</Properties>
+		</Item>
+		<Item class="StringValue" referent="RBX10">
+			<Properties>
+				<string name="Name">HOW_TO_USE</string>
+				<string name="Value">NOTIFICATION SYSTEM KIT
+
+SETUP (drag 3 things, no code):
+1. Put the 'NotificationClient' LocalScript in  game.StarterGui
+     (or StarterPlayer &gt; StarterPlayerScripts).
+2. Put the 'NotificationEvent' RemoteEvent in  game.ReplicatedStorage
+     (this is the server -&gt; client trigger).
+3. Put the 'NotificationLocal' BindableEvent in game.ReplicatedStorage
+     (this is the client -&gt; client trigger).
+
+SHOW A NOTIFICATION
+  From a client LocalScript:
+    game.ReplicatedStorage.NotificationLocal:Fire({
+      Title = "Saved", Text = "Your progress is safe.",
+      Type = "Success", Duration = 4 })
+
+  From a server Script:
+    game.ReplicatedStorage.NotificationEvent:FireClient(player, {
+      Title = "Welcome", Text = "Have fun!", Type = "Info" })
+    -- or  :FireAllClients({ ... })
+
+DATA FIELDS: Title, Text, Type (Info|Success|Warning|Error),
+  Duration (seconds), Color (Color3), Icon (text/emoji).
+
+CONFIG - select the LocalScript and edit its Attributes in the Properties
+  window (no code): Position, MaxVisible, DefaultDuration, Width, AnimTime,
+  ShowProgress, SoundId, and ColorInfo/Success/Warning/Error.
+
+It is ONE LocalScript - no other scripts and no external services.
+
+NOTE: the 'DisplayBell' model is just decoration for the store thumbnail -
+delete it (and this note) once you're set up.</string>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
