@@ -1,0 +1,626 @@
+#!/usr/bin/env python3
+"""
+File Monitoring and Asset Processing
+
+Handles Downloads folder monitoring and asset processing.
+"""
+
+import os
+import threading
+import time
+import shutil
+import re
+from datetime import datetime
+from send2trash import send2trash
+from tkinter import messagebox
+
+from ..core.config import Config
+
+
+class FileMonitor:
+    """Monitors and processes asset files"""
+    
+    def __init__(self, config=None, rojo_server=None, lune_manager=None):
+        self.config = config or Config()
+        self.rojo_server = rojo_server
+        self.lune_manager = lune_manager
+        self.monitoring = False
+        self.monitor_thread = None
+        self.processing_thread = None
+        self.asset_count = 0
+        self._count_callbacks = []
+        self._processed_asset_callbacks = []
+        self.last_verified_asset_filename = None
+        self.last_asset_display_name = "Waiting for asset..."
+        self.last_asset_verified = False
+        self.move_thread = None
+        self._stop_event = threading.Event()
+        self._signal_sync_thread = None
+        self._asset_count_thread = None
+        self._initialize_signal_module()
+        self._start_signal_sync_loop()
+
+    def _escape_lua_string(self, value):
+        return str(value).replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
+
+    def _write_signal_module(self, asset_file_name=None, asset_display_name=None, verified=None):
+        """Write shared signal data consumed by the Studio plugin through Rojo sync."""
+        try:
+            os.makedirs(os.path.dirname(self.config.signal_module_path), exist_ok=True)
+
+            if asset_file_name is None:
+                asset_file_name = self.last_verified_asset_filename or ""
+            else:
+                self.last_verified_asset_filename = asset_file_name or None
+
+            if asset_display_name is None:
+                asset_display_name = self.last_asset_display_name or "Waiting for asset..."
+            else:
+                self.last_asset_display_name = asset_display_name or "Waiting for asset..."
+
+            if verified is None:
+                verified = self.last_asset_verified
+            else:
+                self.last_asset_verified = bool(verified)
+
+            rojo_active = False
+            try:
+                if self.rojo_server:
+                    rojo_active = bool(self.rojo_server.is_running())
+            except Exception:
+                rojo_active = False
+
+            regex_value = getattr(self.config, "regex_statement", "")
+
+            source = (
+                "return {\n"
+                f"    assetFileName = \"{self._escape_lua_string(asset_file_name)}\",\n"
+                f"    currentAsset = \"{self._escape_lua_string(asset_display_name)}\",\n"
+                f"    regexStatement = \"{self._escape_lua_string(regex_value)}\",\n"
+                f"    verifiedByApp = {str(bool(verified)).lower()},\n"
+                f"    rojoActive = {str(bool(rojo_active)).lower()},\n"
+                f"    updatedAt = \"{self._escape_lua_string(datetime.now().strftime('%Y-%m-%d %I:%M %p'))}\"\n"
+                "}\n"
+            )
+
+            with open(self.config.signal_module_path, 'w', encoding='utf-8', newline='\n') as f:
+                f.write(source)
+        except Exception as e:
+            print(f"Failed to write signal module: {e}")
+
+    def _initialize_signal_module(self):
+        """Ensure signal module exists and starts with current status snapshot."""
+        if not os.path.isfile(self.config.signal_module_path):
+            self._write_signal_module("", "Waiting for asset...", False)
+        else:
+            self._write_signal_module()
+
+    def _start_signal_sync_loop(self):
+        """Keep plugin signal status fresh (especially Rojo active/deactive state)."""
+        if self._signal_sync_thread and self._signal_sync_thread.is_alive():
+            return
+
+        def _sync_loop():
+            while not self._stop_event.is_set():
+                try:
+                    self._write_signal_module()
+                except Exception as e:
+                    print(f"Signal sync loop error: {e}")
+                self._stop_event.wait(2)
+
+        self._signal_sync_thread = threading.Thread(target=_sync_loop, daemon=True)
+        self._signal_sync_thread.start()
+
+    def _timestamp_parts(self):
+        """Return filename-safe and display-friendly timestamp strings."""
+        now = datetime.now()
+        hour_12 = str(int(now.strftime("%I")))
+        date_part = now.strftime("%Y-%m-%d")
+        minute_ampm = now.strftime("%M%p")
+        minute_ampm_display = now.strftime("%M %p")
+
+        filename_stamp = f"{date_part}_{hour_12}-{minute_ampm}"
+        display_stamp = f"{date_part} {hour_12}:{minute_ampm_display}"
+        return filename_stamp, display_stamp
+
+    def _detect_model_extension(self, file_path):
+        """Infer the correct Roblox model extension from file contents."""
+        try:
+            with open(file_path, 'rb') as f:
+                header = f.read(128).lstrip()
+
+            if header.startswith((b'<?xml', b'<roblox')):
+                return '.rbxmx'
+        except Exception as e:
+            print(f"Error detecting asset format for {os.path.basename(file_path)}: {e}")
+
+        return '.rbxm'
+
+    def _build_timestamped_name(self, base_hash, model_extension):
+        """Build a unique timestamped asset filename in 12-hour format."""
+        timestamp_for_file, timestamp_for_display = self._timestamp_parts()
+        base_name = f"{base_hash}_{timestamp_for_file}"
+        candidate = f"{base_name}{model_extension}"
+
+        counter = 2
+        while os.path.exists(os.path.join(self.config.processing_folder, candidate)):
+            candidate = f"{base_name}_{counter}{model_extension}"
+            counter += 1
+
+        return candidate, timestamp_for_display
+
+    def _format_asset_display_name(self, base_hash, timestamp_display, max_length=64):
+        """Format display name so toast text remains readable without harsh cutoff."""
+        full = f"{base_hash} | {timestamp_display}"
+        if len(full) <= max_length:
+            return full
+
+        head = full[:36]
+        tail = full[-22:]
+        return f"{head}...{tail}"
+
+    def _notify_processed_asset(self, asset_display_name, verified):
+        """Notify subscribers about a verified processed asset insertion."""
+        for callback in self._processed_asset_callbacks:
+            try:
+                callback(asset_display_name, verified)
+            except Exception as e:
+                print(f"Error in processed asset callback: {e}")
+
+    def flag_current_asset(self):
+        """Duplicate the most recent verified asset into processing/FLAGGED-ASSETS."""
+        if not self.last_verified_asset_filename:
+            return False, "No verified asset available to flag"
+
+        source_candidates = [
+            os.path.join(self.config.workspace_folder, self.last_verified_asset_filename),
+            os.path.join(self.config.assets_folder, self.last_verified_asset_filename),
+        ]
+
+        source_path = next((p for p in source_candidates if os.path.isfile(p)), None)
+        if not source_path:
+            return False, "Current asset file could not be located"
+
+        os.makedirs(self.config.flagged_assets_folder, exist_ok=True)
+        destination_name = self.last_verified_asset_filename
+        destination_path = os.path.join(self.config.flagged_assets_folder, destination_name)
+
+        base, ext = os.path.splitext(destination_name)
+        counter = 2
+        while os.path.exists(destination_path):
+            destination_name = f"{base}_{counter}{ext}"
+            destination_path = os.path.join(self.config.flagged_assets_folder, destination_name)
+            counter += 1
+
+        try:
+            shutil.copy2(source_path, destination_path)
+            print(f"Flagged asset saved: {destination_name}")
+            return True, destination_path
+        except Exception as e:
+            return False, f"Failed to flag asset: {e}"
+
+    def clear_flagged_assets(self):
+        """Clear only the flagged assets folder."""
+        return self._clean_folder(self.config.flagged_assets_folder, count=True)
+
+    def _display_name_from_processed_filename(self, filename, max_length=64):
+        """Convert timestamped filename into a friendly display label."""
+        base = os.path.splitext(filename)[0]
+        match = re.match(r"^(?P<hash>.{32})_(?P<date>\d{4}-\d{2}-\d{2})_(?P<hour>\d{1,2})-(?P<minute>\d{2})(?P<ampm>AM|PM)(?:_\d+)?$", base)
+
+        if not match:
+            return base
+
+        base_hash = match.group("hash")
+        date_part = match.group("date")
+        hour = match.group("hour")
+        minute = match.group("minute")
+        ampm = match.group("ampm")
+
+        display_stamp = f"{date_part} {hour}:{minute} {ampm}"
+        return self._format_asset_display_name(base_hash, display_stamp, max_length=max_length)
+    
+    def start_monitoring(self):
+        """Start monitoring downloads folder"""
+        if self.monitoring:
+            return False
+        
+        self._stop_event.clear()
+        self.monitoring = True
+        if not self.monitor_thread or not self.monitor_thread.is_alive():
+            self.monitor_thread = threading.Thread(target=self._monitor_loop, daemon=True)
+            self.monitor_thread.start()
+        print("File monitoring started")
+        if not self.processing_thread or not self.processing_thread.is_alive():
+            self.processing_thread = threading.Thread(target=self.scanProcessingFolder, daemon=True)
+            self.processing_thread.start()
+        print("Processing folder scanning started")
+        return True
+    
+    
+    def stop_monitoring(self):
+        """Stop monitoring"""
+        self.monitoring = False
+        self._stop_event.set()
+        print("File monitoring stopped")
+        return True
+    
+    def is_monitoring(self):
+        """Check if monitoring is active"""
+        return self.monitoring
+    
+    def _monitor_loop(self):
+        """Main monitoring loop"""
+        try:
+            seen = set(os.listdir(self.config.downloads_path))
+        except Exception:
+            seen = set()
+        
+        while self.monitoring and not self._stop_event.is_set():
+            self._stop_event.wait(1)
+            if self._stop_event.is_set() or not self.monitoring:
+                break
+
+            try:
+                current = set(os.listdir(self.config.downloads_path))
+            except Exception:
+                continue
+            new_files = current - seen
+            
+            for file in new_files:
+                if not self._is_temp_or_incomplete(file):
+                    self._move_file(file)
+            
+            seen = current
+
+    def scanProcessingFolder(self):
+        """Scan processing folder for Roblox model files to process."""
+        while not self._stop_event.is_set():
+            self._stop_event.wait(0.5)
+            if self._stop_event.is_set():
+                break
+            try:
+                files = os.listdir(self.config.processing_folder)
+                model_files = [f for f in files if f.endswith((".rbxm", ".rbxmx"))]
+                
+                if model_files:
+                    processed_candidates = []
+
+                    # Sanitize files before Lune processing
+                    for file in model_files:
+                        full_path = os.path.join(self.config.processing_folder, file)
+                        self._sanitize_rbxm(full_path)
+                        processed_candidates.append(file)
+
+                    # Process with Lune (script handles all files in the folder)
+                    lune_success = bool(self.lune_manager and self.lune_manager.run_init_script())
+
+                    if lune_success:
+                        for processed_file in processed_candidates:
+                            display_name = self._display_name_from_processed_filename(processed_file)
+
+                            if self.rojo_server:
+                                verified = self.rojo_server.verify_workspace_asset(processed_file)
+                            else:
+                                verified = os.path.isfile(os.path.join(self.config.workspace_folder, processed_file))
+
+                            self._write_signal_module(processed_file, display_name, verified)
+
+                            if verified:
+                                self.last_verified_asset_filename = processed_file
+                                self._notify_processed_asset(display_name, True)
+
+                        self._clean_folder(self.config.processing_folder)
+                    else:
+                        # If script fails, clean folder to prevent infinite error loops
+                        self._clean_folder(self.config.processing_folder)
+
+            except Exception as e:
+                print(f"Error scanning processing folder: {e}")
+
+    def _sanitize_rbxm(self, file_path):
+        """
+        Sanitize .rbxm file by renaming incompatible properties.
+        Handles both Binary (.rbxm) and XML (.rbxmx) formats.
+        """
+        try:
+            with open(file_path, 'rb') as f:
+                header = f.read(128)
+                f.seek(0)
+                data = f.read()
+
+            normalized_header = header.lstrip()
+
+            # Some XML assets start with an XML declaration before the <roblox> root.
+            if normalized_header.startswith((b'<?xml', b'<roblox')):
+                print(f"Sanitizing XML file: {os.path.basename(file_path)}")
+                try:
+                    text_data = data.decode('utf-8', errors='ignore')
+                    
+                    # List of properties that might cause ContentIdToContent migration errors
+                    problematic_props = ["MetalnessMap", "NormalMap", "RoughnessMap", "ColorMap", "TexturePack", "TexturePackMetadata"]
+                    
+                    modified = False
+                    for prop in problematic_props:
+                        # Regex to remove the entire BinaryString block for these properties
+                        pattern = f'<BinaryString name="{prop}">.*?</BinaryString>'
+                        
+                        if re.search(pattern, text_data, re.DOTALL):
+                            print(f"Removing incompatible property: {prop}")
+                            text_data = re.sub(pattern, '', text_data, flags=re.DOTALL)
+                            modified = True
+
+                    # Some downloaded animation assets encode the Tags property with an
+                    # unsupported XML value type. Removing the property is safer than
+                    # letting Rojo/Lune reject the entire model.
+                    def _strip_invalid_tags_property(match):
+                        nonlocal modified
+                        tag_name = match.group('tag')
+                        if tag_name == 'SharedString':
+                            return match.group(0)
+
+                        print(f"Removing incompatible property type for Tags: {tag_name}")
+                        modified = True
+                        return ''
+
+                    text_data = re.sub(
+                        r'<(?P<tag>[A-Za-z0-9_]+)\s+name="Tags">.*?</(?P=tag)>',
+                        _strip_invalid_tags_property,
+                        text_data,
+                        flags=re.DOTALL,
+                    )
+                    
+                    if modified:
+                        with open(file_path, 'w', encoding='utf-8') as f:
+                            f.write(text_data)
+                            f.flush()
+                            os.fsync(f.fileno())
+                        print("XML Sanitization complete.")
+                        return
+
+                except Exception as e:
+                    print(f"Error processing XML data: {e}")
+                    
+        except Exception as e:
+            print(f"Error sanitizing {file_path}: {e}")
+
+    
+    def _move_file(self, filename):
+        """Process a new file"""
+        file_path = os.path.join(self.config.downloads_path, filename)
+        
+        if not os.path.isfile(file_path):
+            return
+        
+        name, extension = os.path.splitext(filename)
+        
+        # Check if 32-character asset file (allowing for duplicate counters like " (1)")
+        should_process = (extension == "") and bool(re.match(r'^.{32}( \(\d+\))?$', name))
+        
+        if not should_process:
+            return
+        
+        # Strip duplicate counter if present to get clean hash
+        name = re.sub(r' \(\d+\)$', '', name)
+        
+        try:
+            model_extension = self._detect_model_extension(file_path)
+            # Generate unique timestamp-based filename (12-hour clock).
+            new_name, display_stamp = self._build_timestamped_name(name, model_extension)
+            processing_path = os.path.join(self.config.processing_folder, new_name)
+            
+            # Move to processing folder
+            if not self._safe_move(file_path, processing_path):
+                messagebox.showerror("Error", f"Failed to move {filename}")
+                return
+            
+            # Clean workspace
+            self._clean_folder(self.config.workspace_folder)
+            
+            # Copy to assets
+            shutil.copy(processing_path, self.config.assets_folder)
+
+            display_name = self._format_asset_display_name(name, display_stamp)
+            print(f"Queued asset: {display_name}")
+
+
+        
+        except Exception as e:
+            messagebox.showerror("Error", f"Error processing {filename}: {e}")
+    
+    def clean_assets(self):
+        """Clean all asset folders"""
+        deleted = 0
+        folders = [
+            self.config.assets_folder,
+            self.config.workspace_folder,
+            self.config.processing_folder
+        ]
+        
+        for folder in folders:
+            deleted += self._clean_folder(folder, count=True)
+        
+        return deleted
+    
+    
+    def _clean_folder(self, folder_path, count=False):
+        """Clean a folder"""
+        deleted = 0
+        
+        if os.path.exists(folder_path):
+            for file in os.listdir(folder_path):
+                file_path = os.path.join(folder_path, file)
+                if os.path.isfile(file_path):
+                    try:
+                        if self.config.auto_clean_trash == "true":
+                            os.remove(file_path)
+                        else:
+                            send2trash(file_path)
+                        deleted += 1
+                    except Exception as e:
+                        print(f"Error deleting {file}: {e}")
+        
+        return deleted if count else None
+
+    def empty_recycle_bin(self):
+        """Empty .rbxm files from Recycle Bin (Windows) or Trash (macOS)"""
+        import platform
+        import subprocess
+
+        try:
+            system = platform.system()
+
+            if system == "Windows":
+                # PowerShell script to delete .rbxm files from Recycle Bin
+                # Using -Confirm:$false to suppress confirmation prompts
+                cmd = [
+                    "powershell", "-Command",
+                    "$shell = New-Object -ComObject Shell.Application; "
+                    "$bin = $shell.NameSpace(10); "
+                    "$items = $bin.Items(); "
+                    "foreach ($item in $items) { "
+                    "  if ($item.Name -like '*.rbxm') { "
+                    "    Remove-Item -Path $item.Path -Force -Confirm:$false -ErrorAction SilentlyContinue; "
+                    "  } "
+                    "}"
+                ]
+                # Safe access to CREATE_NO_WINDOW for cross-platform compatibility
+                creation_flags = getattr(subprocess, 'CREATE_NO_WINDOW', 0x08000000)
+                subprocess.run(cmd, check=True, creationflags=creation_flags)
+                return True
+
+            elif system == "Darwin":
+                # macOS: remove .rbxm files from Trash
+                trash_path = os.path.expanduser("~/.Trash")
+                if os.path.exists(trash_path):
+                    # Using os.walk instead of subprocess/find to avoid potential permission/path issues
+                    for root, dirs, files in os.walk(trash_path):
+                        for file in files:
+                            if file.lower().endswith(".rbxm"):
+                                try:
+                                    file_path = os.path.join(root, file)
+                                    os.remove(file_path)
+                                except Exception as e:
+                                    print(f"Failed to delete {file} from Trash: {e}")
+                    return True
+            
+            return False
+
+        except Exception as e:
+            print(f"Error emptying recycle bin: {e}")
+            return False
+    
+    def _is_temp_or_incomplete(self, filename):
+        """Check if file is temp/incomplete download"""
+        temp_exts = {".crdownload", ".part", ".tmp", ".download"}
+        name, ext = os.path.splitext(filename)
+        
+        if ext.lower() in temp_exts:
+            return True
+        if filename.startswith("~$") or filename.startswith("."):
+            return True
+        
+        return False
+    
+    def _safe_move(self, src, dst, retries=5, delay=0.5):
+        """Move file with retry logic"""
+        for attempt in range(retries):
+            try:
+                shutil.move(src, dst)
+                return True
+            except Exception as e:
+                if attempt == retries - 1:
+                    print(f"Move failed after {retries} attempts: {e}")
+                    return False
+                time.sleep(delay)
+    
+    def get_asset_count(self):
+        """
+        Get the count of unique assets in the assets folder.
+        
+        Assets are grouped by their 32-character hash.
+        For each hash, files are grouped into sessions based on modification time.
+        Files added within 10 minutes of the previous file in the group are considered part of the same asset instance.
+        
+        Returns:
+            int: Number of unique asset sessions found.
+        """
+        if not os.path.exists(self.config.assets_folder):
+            return 0
+        
+        try:
+            asset_files = os.listdir(self.config.assets_folder)
+            assets_by_hash = {}
+            
+            for f in asset_files:
+                if f.endswith((".rbxm", ".rbxmx")):
+                    # Get hash
+                    base_name = f[:32] if len(f) >= 32 else f
+                    
+                    # Get mtime
+                    file_path = os.path.join(self.config.assets_folder, f)
+                    try:
+                        mtime = os.path.getmtime(file_path)
+                    except OSError:
+                        continue
+                    
+                    if base_name not in assets_by_hash:
+                        assets_by_hash[base_name] = []
+                    assets_by_hash[base_name].append(mtime)
+            
+            total_count = 0
+            
+            for base_name, times in assets_by_hash.items():
+                if not times:
+                    continue
+                    
+                times.sort()
+                
+                # Count clusters
+                clusters = 1
+                last_time = times[0]
+                
+                for t in times[1:]:
+                    # If this file is more than 10 minutes (600s) after the previous one
+                    if t - last_time > 600:
+                        clusters += 1
+                    last_time = t
+                
+                total_count += clusters
+            
+            return total_count
+        except Exception as e:
+            print(f"Error counting assets: {e}")
+            return 0
+    
+    def add_count_callback(self, callback):
+        """Add callback for count changes"""
+        self._count_callbacks.append(callback)
+
+    def add_processed_asset_callback(self, callback):
+        """Add callback for verified processed assets."""
+        self._processed_asset_callbacks.append(callback)
+    
+    def start_asset_counting(self):
+        """Start background asset counting"""
+        if self._asset_count_thread and self._asset_count_thread.is_alive():
+            return
+
+        def count_loop():
+            while not self._stop_event.is_set():
+                self._stop_event.wait(3)
+                if self._stop_event.is_set():
+                    break
+                try:
+                    new_count = self.get_asset_count()
+                    if new_count != self.asset_count:
+                        self.asset_count = new_count
+                        for callback in self._count_callbacks:
+                            callback(new_count)
+                except Exception as e:
+                    print(f"Error in asset counting: {e}")
+        
+        self._asset_count_thread = threading.Thread(target=count_loop, daemon=True)
+        self._asset_count_thread.start()
+
+    

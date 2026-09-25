@@ -1,0 +1,1084 @@
+[2026-07-01 04:49:33 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 04:49:33 PM] [stdout] 
+[2026-07-01 04:49:33 PM] [stdout] Setting up tools...
+[2026-07-01 04:49:33 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Tools already installed
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Tools installed
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Rojo plugin already installed
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Rojo plugin installed
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Local mirror plugin installed
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Starting services...
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Rojo server started (PID: 3764)
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Services started
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] Roblox Studio opened (PID: 20644)
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:34 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 04:49:34 PM] [stdout] 
+[2026-07-01 04:49:35 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 04:49:35 PM] [stdout] 
+[2026-07-01 04:49:35 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 04:49:35 PM] [stdout] 
+[2026-07-01 04:49:35 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 04:49:35 PM] [stdout] 
+[2026-07-01 04:52:41 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 04:52:41 PM] [stdout] 
+[2026-07-01 04:52:42 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 04:52:42 PM] [stdout] 
+[2026-07-01 04:53:03 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 04:53:03 PM] [stdout] 
+[2026-07-01 04:53:04 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 04:53:04 PM] [stdout] 
+[2026-07-01 04:53:14 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 04:53:15 PM] [stdout] 
+[2026-07-01 04:53:16 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 04:53:16 PM] [stdout] 
+[2026-07-01 04:53:23 PM] [stdout] Regex statement copied to clipboard.
+[2026-07-01 04:53:23 PM] [stdout] 
+[2026-07-01 04:55:05 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 04:55:05 PM] [stdout] 
+[2026-07-01 04:55:05 PM] [stdout] Shutting down...
+[2026-07-01 04:55:05 PM] [stdout] 
+[2026-07-01 04:55:05 PM] [stdout] File monitoring stopped
+[2026-07-01 04:55:05 PM] [stdout] 
+[2026-07-01 04:55:05 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 04:55:05 PM] [stdout] 
+[2026-07-01 04:55:08 PM] [stdout] Rojo server stopped
+[2026-07-01 04:55:08 PM] [stdout] 
+[2026-07-01 04:55:08 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 04:55:08 PM] [stdout] 
+[2026-07-01 04:55:08 PM] [stdout] Closing Roblox Studio (PID: 20644)
+[2026-07-01 04:55:08 PM] [stdout] 
+[2026-07-01 04:55:08 PM] [stdout] Forcing termination of process 20644
+[2026-07-01 04:55:08 PM] [stdout] 
+[2026-07-01 04:55:10 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 04:55:10 PM] [stdout] 
+[2026-07-01 04:55:10 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 04:55:10 PM] [stdout] 
+[2026-07-01 04:55:10 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 04:55:11 PM] [stdout] 
+[2026-07-01 04:55:11 PM] [stdout] Shutdown complete.
+[2026-07-01 04:55:11 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Setting up tools...
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Tools already installed
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Tools installed
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Rojo plugin already installed
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Rojo plugin installed
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Local mirror plugin installed
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Starting services...
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Rojo server started (PID: 20468)
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Services started
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] Roblox Studio opened (PID: 22272)
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:42 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 04:55:42 PM] [stdout] 
+[2026-07-01 04:55:43 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 04:55:43 PM] [stdout] 
+[2026-07-01 04:55:43 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 04:55:43 PM] [stdout] 
+[2026-07-01 04:55:43 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 04:55:43 PM] [stdout] 
+[2026-07-01 05:04:14 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 05:04:14 PM] [stdout] 
+[2026-07-01 05:04:14 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 05:04:14 PM] [stdout] 
+[2026-07-01 05:04:23 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:04:23 PM] [stdout] 
+[2026-07-01 05:04:24 PM] [stdout] Shutting down...
+[2026-07-01 05:04:24 PM] [stdout] 
+[2026-07-01 05:04:24 PM] [stdout] File monitoring stopped
+[2026-07-01 05:04:24 PM] [stdout] 
+[2026-07-01 05:04:24 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:04:24 PM] [stdout] 
+[2026-07-01 05:04:25 PM] [stdout] Rojo server stopped
+[2026-07-01 05:04:25 PM] [stdout] 
+[2026-07-01 05:04:25 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:04:25 PM] [stdout] 
+[2026-07-01 05:04:25 PM] [stdout] Closing Roblox Studio (PID: 22272)
+[2026-07-01 05:04:25 PM] [stdout] 
+[2026-07-01 05:04:26 PM] [stdout] Forcing termination of process 22272
+[2026-07-01 05:04:26 PM] [stdout] 
+[2026-07-01 05:04:28 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:04:28 PM] [stdout] 
+[2026-07-01 05:04:28 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:04:28 PM] [stdout] 
+[2026-07-01 05:04:28 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:04:28 PM] [stdout] 
+[2026-07-01 05:04:28 PM] [stdout] Shutdown complete.
+[2026-07-01 05:04:28 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Setting up tools...
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Tools already installed
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Tools installed
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Starting services...
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Rojo server started (PID: 9580)
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Services started
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] Roblox Studio opened (PID: 21220)
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:23 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:07:23 PM] [stdout] 
+[2026-07-01 05:07:24 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:07:24 PM] [stdout] 
+[2026-07-01 05:07:24 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:07:24 PM] [stdout] 
+[2026-07-01 05:07:24 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:07:24 PM] [stdout] 
+[2026-07-01 05:07:29 PM] [stdout] File monitoring started
+[2026-07-01 05:07:29 PM] [stdout] 
+[2026-07-01 05:07:29 PM] [stdout] Processing folder scanning started
+[2026-07-01 05:07:29 PM] [stdout] 
+[2026-07-01 05:07:29 PM] [stdout] File monitoring stopped
+[2026-07-01 05:07:29 PM] [stdout] 
+[2026-07-01 05:07:31 PM] [stdout] Regex statement copied to clipboard.
+[2026-07-01 05:07:31 PM] [stdout] 
+[2026-07-01 05:08:26 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:08:26 PM] [stdout] 
+[2026-07-01 05:08:26 PM] [stdout] Shutting down...
+[2026-07-01 05:08:26 PM] [stdout] 
+[2026-07-01 05:08:26 PM] [stdout] File monitoring stopped
+[2026-07-01 05:08:26 PM] [stdout] 
+[2026-07-01 05:08:26 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:08:26 PM] [stdout] 
+[2026-07-01 05:08:28 PM] [stdout] Rojo server stopped
+[2026-07-01 05:08:28 PM] [stdout] 
+[2026-07-01 05:08:28 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:08:28 PM] [stdout] 
+[2026-07-01 05:08:28 PM] [stdout] Closing Roblox Studio (PID: 21220)
+[2026-07-01 05:08:28 PM] [stdout] 
+[2026-07-01 05:08:29 PM] [stdout] Forcing termination of process 21220
+[2026-07-01 05:08:29 PM] [stdout] 
+[2026-07-01 05:08:31 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:08:31 PM] [stdout] 
+[2026-07-01 05:08:31 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:08:31 PM] [stdout] 
+[2026-07-01 05:08:31 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:08:31 PM] [stdout] 
+[2026-07-01 05:08:31 PM] [stdout] Shutdown complete.
+[2026-07-01 05:08:31 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Setting up tools...
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Tools already installed
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Tools installed
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Starting services...
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Rojo server started (PID: 28864)
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Services started
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] Roblox Studio opened (PID: 16240)
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:24 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:13:24 PM] [stdout] 
+[2026-07-01 05:13:25 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:13:25 PM] [stdout] 
+[2026-07-01 05:13:25 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:13:25 PM] [stdout] 
+[2026-07-01 05:13:25 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:13:25 PM] [stdout] 
+[2026-07-01 05:16:20 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:16:20 PM] [stdout] 
+[2026-07-01 05:16:20 PM] [stdout] Shutting down...
+[2026-07-01 05:16:20 PM] [stdout] 
+[2026-07-01 05:16:20 PM] [stdout] File monitoring stopped
+[2026-07-01 05:16:20 PM] [stdout] 
+[2026-07-01 05:16:20 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:16:20 PM] [stdout] 
+[2026-07-01 05:16:21 PM] [stdout] Rojo server stopped
+[2026-07-01 05:16:21 PM] [stdout] 
+[2026-07-01 05:16:21 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:16:21 PM] [stdout] 
+[2026-07-01 05:16:21 PM] [stdout] Closing Roblox Studio (PID: 16240)
+[2026-07-01 05:16:21 PM] [stdout] 
+[2026-07-01 05:16:22 PM] [stdout] Forcing termination of process 16240
+[2026-07-01 05:16:22 PM] [stdout] 
+[2026-07-01 05:16:24 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:16:24 PM] [stdout] 
+[2026-07-01 05:16:24 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:16:24 PM] [stdout] 
+[2026-07-01 05:16:24 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:16:24 PM] [stdout] 
+[2026-07-01 05:16:24 PM] [stdout] Shutdown complete.
+[2026-07-01 05:16:24 PM] [stdout] 
+[2026-07-01 05:16:52 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:16:52 PM] [stdout] 
+[2026-07-01 05:16:52 PM] [stdout] Setting up tools...
+[2026-07-01 05:16:52 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Tools already installed
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Tools installed
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Starting services...
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Rojo server started (PID: 13008)
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Services started
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] Roblox Studio opened (PID: 8840)
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:53 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:16:53 PM] [stdout] 
+[2026-07-01 05:16:54 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:16:54 PM] [stdout] 
+[2026-07-01 05:16:54 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:16:54 PM] [stdout] 
+[2026-07-01 05:16:54 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:16:54 PM] [stdout] 
+[2026-07-01 05:19:04 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:19:04 PM] [stdout] 
+[2026-07-01 05:19:04 PM] [stdout] Shutting down...
+[2026-07-01 05:19:04 PM] [stdout] 
+[2026-07-01 05:19:04 PM] [stdout] File monitoring stopped
+[2026-07-01 05:19:04 PM] [stdout] 
+[2026-07-01 05:19:04 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:19:04 PM] [stdout] 
+[2026-07-01 05:19:06 PM] [stdout] Rojo server stopped
+[2026-07-01 05:19:06 PM] [stdout] 
+[2026-07-01 05:19:06 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:19:06 PM] [stdout] 
+[2026-07-01 05:19:06 PM] [stdout] Closing Roblox Studio (PID: 8840)
+[2026-07-01 05:19:06 PM] [stdout] 
+[2026-07-01 05:19:07 PM] [stdout] Forcing termination of process 8840
+[2026-07-01 05:19:07 PM] [stdout] 
+[2026-07-01 05:19:09 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:19:09 PM] [stdout] 
+[2026-07-01 05:19:09 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:19:09 PM] [stdout] 
+[2026-07-01 05:19:09 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:19:09 PM] [stdout] 
+[2026-07-01 05:19:09 PM] [stdout] Shutdown complete.
+[2026-07-01 05:19:09 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Setting up tools...
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Tools already installed
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Tools installed
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Starting services...
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Rojo server started (PID: 31472)
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Services started
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] Roblox Studio opened (PID: 27684)
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:25 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:19:25 PM] [stdout] 
+[2026-07-01 05:19:26 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:19:26 PM] [stdout] 
+[2026-07-01 05:19:26 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:19:26 PM] [stdout] 
+[2026-07-01 05:19:26 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:19:26 PM] [stdout] 
+[2026-07-01 05:22:12 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:22:12 PM] [stdout] 
+[2026-07-01 05:22:12 PM] [stdout] Shutting down...
+[2026-07-01 05:22:12 PM] [stdout] 
+[2026-07-01 05:22:12 PM] [stdout] File monitoring stopped
+[2026-07-01 05:22:12 PM] [stdout] 
+[2026-07-01 05:22:12 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:22:12 PM] [stdout] 
+[2026-07-01 05:22:14 PM] [stdout] Rojo server stopped
+[2026-07-01 05:22:14 PM] [stdout] 
+[2026-07-01 05:22:14 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:22:14 PM] [stdout] 
+[2026-07-01 05:22:14 PM] [stdout] Closing Roblox Studio (PID: 27684)
+[2026-07-01 05:22:14 PM] [stdout] 
+[2026-07-01 05:22:14 PM] [stdout] Forcing termination of process 27684
+[2026-07-01 05:22:14 PM] [stdout] 
+[2026-07-01 05:22:16 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:22:16 PM] [stdout] 
+[2026-07-01 05:22:16 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:22:16 PM] [stdout] 
+[2026-07-01 05:22:16 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:22:16 PM] [stdout] 
+[2026-07-01 05:22:16 PM] [stdout] Shutdown complete.
+[2026-07-01 05:22:16 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Setting up tools...
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Tools already installed
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Tools installed
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:18 PM] [stdout] Starting services...
+[2026-07-01 05:23:18 PM] [stdout] 
+[2026-07-01 05:23:20 PM] [stdout] Rojo server started (PID: 3980)
+[2026-07-01 05:23:20 PM] [stdout] 
+[2026-07-01 05:23:20 PM] [stdout] Services started
+[2026-07-01 05:23:20 PM] [stdout] 
+[2026-07-01 05:23:20 PM] [stdout] Roblox Studio opened (PID: 27856)
+[2026-07-01 05:23:20 PM] [stdout] 
+[2026-07-01 05:23:20 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:23:20 PM] [stdout] 
+[2026-07-01 05:23:21 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:23:21 PM] [stdout] 
+[2026-07-01 05:23:21 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:23:21 PM] [stdout] 
+[2026-07-01 05:23:21 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:23:21 PM] [stdout] 
+[2026-07-01 05:24:19 PM] [stdout] File monitoring started
+[2026-07-01 05:24:19 PM] [stdout] 
+[2026-07-01 05:24:19 PM] [stdout] Processing folder scanning started
+[2026-07-01 05:24:19 PM] [stdout] 
+[2026-07-01 05:24:21 PM] [stdout] Regex statement copied to clipboard.
+[2026-07-01 05:24:21 PM] [stdout] 
+[2026-07-01 05:24:28 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 05:24:28 PM] [stdout] 
+[2026-07-01 05:24:29 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 05:24:29 PM] [stdout] 
+[2026-07-01 05:24:38 PM] [stdout] Regex statement saved.
+[2026-07-01 05:24:38 PM] [stdout] 
+[2026-07-01 05:24:41 PM] [stdout] No regex statement saved to copy.
+[2026-07-01 05:24:41 PM] [stdout] 
+[2026-07-01 05:24:52 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:24:52 PM] [stdout] 
+[2026-07-01 05:24:52 PM] [stdout] Shutting down...
+[2026-07-01 05:24:52 PM] [stdout] 
+[2026-07-01 05:24:52 PM] [stdout] File monitoring stopped
+[2026-07-01 05:24:52 PM] [stdout] 
+[2026-07-01 05:24:52 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:24:52 PM] [stdout] 
+[2026-07-01 05:24:54 PM] [stdout] Rojo server stopped
+[2026-07-01 05:24:54 PM] [stdout] 
+[2026-07-01 05:24:54 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:24:54 PM] [stdout] 
+[2026-07-01 05:24:54 PM] [stdout] Closing Roblox Studio (PID: 27856)
+[2026-07-01 05:24:54 PM] [stdout] 
+[2026-07-01 05:24:54 PM] [stdout] Forcing termination of process 27856
+[2026-07-01 05:24:54 PM] [stdout] 
+[2026-07-01 05:24:56 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:24:56 PM] [stdout] 
+[2026-07-01 05:24:56 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:24:56 PM] [stdout] 
+[2026-07-01 05:24:56 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:24:56 PM] [stdout] 
+[2026-07-01 05:24:56 PM] [stdout] Shutdown complete.
+[2026-07-01 05:24:56 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Setting up tools...
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Tools already installed
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Tools installed
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Rojo plugin already installed
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Rojo plugin installed
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Local mirror plugin installed
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Starting services...
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Rojo server started (PID: 11128)
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Services started
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] Roblox Studio opened (PID: 23484)
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:38 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 05:47:38 PM] [stdout] 
+[2026-07-01 05:47:39 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 05:47:39 PM] [stdout] 
+[2026-07-01 05:47:39 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 05:47:39 PM] [stdout] 
+[2026-07-01 05:47:39 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 05:47:39 PM] [stdout] 
+[2026-07-01 05:50:33 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 05:50:33 PM] [stdout] 
+[2026-07-01 05:50:33 PM] [stdout] Shutting down...
+[2026-07-01 05:50:33 PM] [stdout] 
+[2026-07-01 05:50:33 PM] [stdout] File monitoring stopped
+[2026-07-01 05:50:33 PM] [stdout] 
+[2026-07-01 05:50:33 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 05:50:33 PM] [stdout] 
+[2026-07-01 05:50:35 PM] [stdout] Rojo server stopped
+[2026-07-01 05:50:35 PM] [stdout] 
+[2026-07-01 05:50:35 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 05:50:35 PM] [stdout] 
+[2026-07-01 05:50:35 PM] [stdout] Closing Roblox Studio (PID: 23484)
+[2026-07-01 05:50:35 PM] [stdout] 
+[2026-07-01 05:50:36 PM] [stdout] Forcing termination of process 23484
+[2026-07-01 05:50:36 PM] [stdout] 
+[2026-07-01 05:50:38 PM] [stdout] Roblox Studio closed successfully
+[2026-07-01 05:50:38 PM] [stdout] 
+[2026-07-01 05:50:38 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 05:50:38 PM] [stdout] 
+[2026-07-01 05:50:38 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 05:50:38 PM] [stdout] 
+[2026-07-01 05:50:38 PM] [stdout] Shutdown complete.
+[2026-07-01 05:50:38 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Asset Trust Monitor Started
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Setting up tools...
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Tools already installed
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Tools installed
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Rojo plugin already installed
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Rojo plugin installed
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Local mirror plugin installed
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Starting services...
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Rojo server started (PID: 28952)
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Services started
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] Roblox Studio opened (PID: 21732)
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:02 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-01 06:23:02 PM] [stdout] 
+[2026-07-01 06:23:03 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-01 06:23:03 PM] [stdout] 
+[2026-07-01 06:23:03 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-01 06:23:03 PM] [stdout] 
+[2026-07-01 06:23:03 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-01 06:23:03 PM] [stdout] 
+[2026-07-01 06:23:05 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 06:23:05 PM] [stdout] 
+[2026-07-01 06:23:05 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 06:23:05 PM] [stdout] 
+[2026-07-01 06:43:00 PM] [stdout] No regex statement saved to copy.
+[2026-07-01 06:43:00 PM] [stdout] 
+[2026-07-01 06:44:41 PM] [stdout] Fetching Rojo versions...
+[2026-07-01 06:44:41 PM] [stdout] 
+[2026-07-01 06:44:41 PM] [stdout] Fetched 17 Rojo versions.
+[2026-07-01 06:44:41 PM] [stdout] 
+[2026-07-01 06:45:21 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-01 06:45:21 PM] [stdout] 
+[2026-07-01 06:45:21 PM] [stdout] Shutting down...
+[2026-07-01 06:45:21 PM] [stdout] 
+[2026-07-01 06:45:21 PM] [stdout] File monitoring stopped
+[2026-07-01 06:45:21 PM] [stdout] 
+[2026-07-01 06:45:21 PM] [stdout]   ✓ file monitor stopped
+[2026-07-01 06:45:21 PM] [stdout] 
+[2026-07-01 06:45:24 PM] [stdout] Rojo server stopped
+[2026-07-01 06:45:24 PM] [stdout] 
+[2026-07-01 06:45:24 PM] [stdout]   ✓ rojo server stopped
+[2026-07-01 06:45:24 PM] [stdout] 
+[2026-07-01 06:45:24 PM] [stdout] Closing Roblox Studio (PID: 21732)
+[2026-07-01 06:45:24 PM] [stdout] 
+[2026-07-01 06:45:25 PM] [stdout] Forcing termination of process 21732
+[2026-07-01 06:45:25 PM] [stdout] 
+[2026-07-01 06:45:27 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-01 06:45:27 PM] [stdout] 
+[2026-07-01 06:45:27 PM] [stdout]   ✓ studio manager stopped
+[2026-07-01 06:45:27 PM] [stdout] 
+[2026-07-01 06:45:27 PM] [stdout]   ✓ system tray stopped
+[2026-07-01 06:45:27 PM] [stdout] 
+[2026-07-01 06:45:27 PM] [stdout] Shutdown complete.
+[2026-07-01 06:45:27 PM] [stdout] 
+[2026-07-06 03:30:39 PM] [stdout] Asset Trust Monitor Started
+[2026-07-06 03:30:39 PM] [stdout] 
+[2026-07-06 03:30:39 PM] [stdout] Setting up tools...
+[2026-07-06 03:30:39 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Tools already installed
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Tools installed
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Rojo plugin already installed
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Rojo plugin installed
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Local mirror plugin installed
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:40 PM] [stdout] Starting services...
+[2026-07-06 03:30:40 PM] [stdout] 
+[2026-07-06 03:30:41 PM] [stdout] Rojo server started (PID: 32684)
+[2026-07-06 03:30:41 PM] [stdout] 
+[2026-07-06 03:30:41 PM] [stdout] Services started
+[2026-07-06 03:30:41 PM] [stdout] 
+[2026-07-06 03:30:41 PM] [stdout] Roblox Studio opened (PID: 32704)
+[2026-07-06 03:30:41 PM] [stdout] 
+[2026-07-06 03:30:41 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-06 03:30:41 PM] [stdout] 
+[2026-07-06 03:30:42 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-06 03:30:42 PM] [stdout] 
+[2026-07-06 03:30:42 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-06 03:30:42 PM] [stdout] 
+[2026-07-06 03:31:22 PM] [stdout] File monitoring started
+[2026-07-06 03:31:22 PM] [stdout] 
+[2026-07-06 03:31:22 PM] [stdout] Processing folder scanning started
+[2026-07-06 03:31:22 PM] [stdout] 
+[2026-07-06 03:31:31 PM] [stdout] File monitoring stopped
+[2026-07-06 03:31:31 PM] [stdout] 
+[2026-07-06 03:34:32 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-06 03:34:32 PM] [stdout] 
+[2026-07-06 03:34:32 PM] [stdout] Shutting down...
+[2026-07-06 03:34:32 PM] [stdout] 
+[2026-07-06 03:34:32 PM] [stdout] File monitoring stopped
+[2026-07-06 03:34:32 PM] [stdout] 
+[2026-07-06 03:34:32 PM] [stdout]   ✓ file monitor stopped
+[2026-07-06 03:34:32 PM] [stdout] 
+[2026-07-06 03:34:34 PM] [stdout] Rojo server stopped
+[2026-07-06 03:34:34 PM] [stdout] 
+[2026-07-06 03:34:34 PM] [stdout]   ✓ rojo server stopped
+[2026-07-06 03:34:34 PM] [stdout] 
+[2026-07-06 03:34:34 PM] [stdout] Closing Roblox Studio (PID: 32704)
+[2026-07-06 03:34:34 PM] [stdout] 
+[2026-07-06 03:34:35 PM] [stdout] Forcing termination of process 32704
+[2026-07-06 03:34:35 PM] [stdout] 
+[2026-07-06 03:34:37 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-06 03:34:37 PM] [stdout] 
+[2026-07-06 03:34:37 PM] [stdout]   ✓ studio manager stopped
+[2026-07-06 03:34:37 PM] [stdout] 
+[2026-07-06 03:34:37 PM] [stdout]   ✓ system tray stopped
+[2026-07-06 03:34:37 PM] [stdout] 
+[2026-07-06 03:34:37 PM] [stdout] Shutdown complete.
+[2026-07-06 03:34:37 PM] [stdout] 
+[2026-07-06 04:15:32 PM] [stdout] Asset Trust Monitor Started
+[2026-07-06 04:15:32 PM] [stdout] 
+[2026-07-06 04:15:32 PM] [stdout] Setting up tools...
+[2026-07-06 04:15:32 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Tools already installed
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Tools installed
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Rojo plugin already installed
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Rojo plugin installed
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Local mirror plugin installed
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Starting services...
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Rojo server started (PID: 13256)
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Services started
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] Roblox Studio opened (PID: 31708)
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:33 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-06 04:15:33 PM] [stdout] 
+[2026-07-06 04:15:34 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-06 04:15:34 PM] [stdout] 
+[2026-07-06 04:15:34 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-06 04:15:34 PM] [stdout] 
+[2026-07-06 04:15:34 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-06 04:15:34 PM] [stdout] 
+[2026-07-06 04:16:39 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-06 04:16:39 PM] [stdout] 
+[2026-07-06 04:16:39 PM] [stdout] Shutting down...
+[2026-07-06 04:16:39 PM] [stdout] 
+[2026-07-06 04:16:39 PM] [stdout] File monitoring stopped
+[2026-07-06 04:16:39 PM] [stdout] 
+[2026-07-06 04:16:39 PM] [stdout]   ✓ file monitor stopped
+[2026-07-06 04:16:39 PM] [stdout] 
+[2026-07-06 04:16:42 PM] [stdout] Rojo server stopped
+[2026-07-06 04:16:42 PM] [stdout] 
+[2026-07-06 04:16:42 PM] [stdout]   ✓ rojo server stopped
+[2026-07-06 04:16:42 PM] [stdout] 
+[2026-07-06 04:16:42 PM] [stdout] Closing Roblox Studio (PID: 31708)
+[2026-07-06 04:16:42 PM] [stdout] 
+[2026-07-06 04:16:42 PM] [stdout] Forcing termination of process 31708
+[2026-07-06 04:16:42 PM] [stdout] 
+[2026-07-06 04:16:45 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-06 04:16:45 PM] [stdout] 
+[2026-07-06 04:16:45 PM] [stdout]   ✓ studio manager stopped
+[2026-07-06 04:16:45 PM] [stdout] 
+[2026-07-06 04:16:45 PM] [stdout]   ✓ system tray stopped
+[2026-07-06 04:16:45 PM] [stdout] 
+[2026-07-06 04:16:45 PM] [stdout] Shutdown complete.
+[2026-07-06 04:16:45 PM] [stdout] 
+[2026-07-08 03:48:26 PM] [stdout] Asset Trust Monitor Started
+[2026-07-08 03:48:26 PM] [stdout] 
+[2026-07-08 03:48:26 PM] [stdout] Setting up tools...
+[2026-07-08 03:48:26 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Tools already installed
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Tools installed
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Rojo plugin already installed
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Rojo plugin installed
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Local mirror plugin installed
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Starting services...
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Rojo server started (PID: 22944)
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Services started
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] Roblox Studio opened (PID: 5068)
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:27 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-08 03:48:27 PM] [stdout] 
+[2026-07-08 03:48:28 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-08 03:48:28 PM] [stdout] 
+[2026-07-08 03:48:28 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-08 03:48:28 PM] [stdout] 
+[2026-07-08 03:48:28 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-08 03:48:28 PM] [stdout] 
+[2026-07-08 03:49:12 PM] [stdout] File monitoring started
+[2026-07-08 03:49:12 PM] [stdout] 
+[2026-07-08 03:49:12 PM] [stdout] Processing folder scanning started
+[2026-07-08 03:49:12 PM] [stdout] 
+[2026-07-08 03:53:51 PM] [stdout] Queued asset: a6d5ee4108c6b2793cfdcec293c0a6b8 | 2026-07-08 3:53 PM
+[2026-07-08 03:53:51 PM] [stdout] 
+[2026-07-08 03:53:51 PM] [stdout] Running Lune script: lune/init.luau
+[2026-07-08 03:53:51 PM] [stdout] 
+[2026-07-08 03:53:54 PM] [stdout] Lune script completed successfully
+[2026-07-08 03:53:55 PM] [stdout] 
+[2026-07-08 03:53:55 PM] [stdout] Output: Warning: Failed to process a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_3-53PM.rbxm
+Unknown document format
+stack traceback:
+	[C]: in ?
+	__mlua_async_poll:27: in ?
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:19: in ?
+	[C]: in function 'pcall'
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:16: in ?
+
+Attempting fallback: Moving raw file to Workspace...
+Fallback successful: Moved raw file to src/Workspace/a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_3-53PM.rbxm
+[2026-07-08 03:53:55 PM] [stdout] 
+[2026-07-08 03:54:03 PM] [stdout] Fetching Rojo versions...
+[2026-07-08 03:54:03 PM] [stdout] 
+[2026-07-08 03:54:04 PM] [stdout] Fetched 18 Rojo versions.
+[2026-07-08 03:54:04 PM] [stdout] 
+[2026-07-08 03:59:16 PM] [stdout] Running Lune script: lune/init.luau
+[2026-07-08 03:59:16 PM] [stdout] 
+[2026-07-08 03:59:17 PM] [stdout] Lune script completed successfully
+[2026-07-08 03:59:17 PM] [stdout] 
+[2026-07-08 03:59:26 PM] [stdout] Running Lune script: lune/init.luau
+[2026-07-08 03:59:26 PM] [stdout] 
+[2026-07-08 03:59:27 PM] [stdout] Lune script completed successfully
+[2026-07-08 03:59:27 PM] [stdout] 
+[2026-07-08 03:59:34 PM] [stdout] Running Lune script: lune/init.luau
+[2026-07-08 03:59:34 PM] [stdout] 
+[2026-07-08 03:59:35 PM] [stdout] Lune script completed successfully
+[2026-07-08 03:59:35 PM] [stdout] 
+[2026-07-08 03:59:35 PM] [stdout] Output: Warning: Failed to process a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_3-53PM_validation3.rbxm
+Unknown document format
+stack traceback:
+	[C]: in ?
+	__mlua_async_poll:27: in ?
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:19: in ?
+	[C]: in function 'pcall'
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:16: in ?
+
+Attempting fallback: Moving raw file to Workspace...
+Fallback successful: Moved raw file to src/Workspace/a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_3-53PM_validation3.rbxm
+[2026-07-08 03:59:35 PM] [stdout] 
+[2026-07-08 04:00:44 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-08 04:00:44 PM] [stdout] 
+[2026-07-08 04:00:44 PM] [stdout] Shutting down...
+[2026-07-08 04:00:44 PM] [stdout] 
+[2026-07-08 04:00:44 PM] [stdout] File monitoring stopped
+[2026-07-08 04:00:44 PM] [stdout] 
+[2026-07-08 04:00:44 PM] [stdout]   ✓ file monitor stopped
+[2026-07-08 04:00:44 PM] [stdout] 
+[2026-07-08 04:00:47 PM] [stdout] Rojo server stopped
+[2026-07-08 04:00:47 PM] [stdout] 
+[2026-07-08 04:00:47 PM] [stdout]   ✓ rojo server stopped
+[2026-07-08 04:00:47 PM] [stdout] 
+[2026-07-08 04:00:47 PM] [stdout] Closing Roblox Studio (PID: 5068)
+[2026-07-08 04:00:47 PM] [stdout] 
+[2026-07-08 04:00:48 PM] [stdout] Forcing termination of process 5068
+[2026-07-08 04:00:48 PM] [stdout] 
+[2026-07-08 04:00:50 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-08 04:00:50 PM] [stdout] 
+[2026-07-08 04:00:50 PM] [stdout]   ✓ studio manager stopped
+[2026-07-08 04:00:50 PM] [stdout] 
+[2026-07-08 04:00:50 PM] [stdout]   ✓ system tray stopped
+[2026-07-08 04:00:50 PM] [stdout] 
+[2026-07-08 04:00:50 PM] [stdout] Shutdown complete.
+[2026-07-08 04:00:50 PM] [stdout] 
+[2026-07-08 04:01:06 PM] [stdout] Asset Trust Monitor Started
+[2026-07-08 04:01:06 PM] [stdout] 
+[2026-07-08 04:01:06 PM] [stdout] Setting up tools...
+[2026-07-08 04:01:06 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Tools already installed
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Tools installed
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Rojo plugin already installed
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Rojo plugin installed
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Local mirror plugin installed
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Starting services...
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Rojo server started (PID: 28012)
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Services started
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] Roblox Studio opened (PID: 1192)
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:07 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-08 04:01:07 PM] [stdout] 
+[2026-07-08 04:01:08 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-08 04:01:08 PM] [stdout] 
+[2026-07-08 04:01:08 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-08 04:01:08 PM] [stdout] 
+[2026-07-08 04:01:08 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-08 04:01:08 PM] [stdout] 
+[2026-07-08 04:01:09 PM] [stdout] Rojo server PID 28012 no longer running
+[2026-07-08 04:01:09 PM] [stdout] 
+[2026-07-08 04:01:11 PM] [stdout] File monitoring started
+[2026-07-08 04:01:11 PM] [stdout] 
+[2026-07-08 04:01:11 PM] [stdout] Processing folder scanning started
+[2026-07-08 04:01:11 PM] [stdout] 
+[2026-07-08 04:01:55 PM] [stdout] Fetching Rojo versions...
+[2026-07-08 04:01:55 PM] [stdout] 
+[2026-07-08 04:01:57 PM] [stdout] Restarting Rojo server...
+[2026-07-08 04:01:57 PM] [stdout] 
+[2026-07-08 04:01:58 PM] [stdout] Fetched 18 Rojo versions.
+[2026-07-08 04:01:59 PM] [stdout] Rojo server stopped
+[2026-07-08 04:01:59 PM] [stdout] 
+[2026-07-08 04:01:59 PM] [stdout] Rojo server started (PID: 30572)
+[2026-07-08 04:01:59 PM] [stdout] 
+[2026-07-08 04:01:59 PM] [stdout] 
+[2026-07-08 04:02:01 PM] [stdout] Rojo server PID 30572 no longer running
+[2026-07-08 04:02:01 PM] [stdout] 
+[2026-07-08 04:02:08 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-08 04:02:08 PM] [stdout] 
+[2026-07-08 04:02:08 PM] [stdout] Shutting down...
+[2026-07-08 04:02:08 PM] [stdout] 
+[2026-07-08 04:02:08 PM] [stdout] File monitoring stopped
+[2026-07-08 04:02:08 PM] [stdout] 
+[2026-07-08 04:02:08 PM] [stdout]   ✓ file monitor stopped
+[2026-07-08 04:02:08 PM] [stdout] 
+[2026-07-08 04:02:09 PM] [stdout] Rojo server stopped
+[2026-07-08 04:02:09 PM] [stdout] 
+[2026-07-08 04:02:09 PM] [stdout]   ✓ rojo server stopped
+[2026-07-08 04:02:09 PM] [stdout] 
+[2026-07-08 04:02:09 PM] [stdout] Closing Roblox Studio (PID: 1192)
+[2026-07-08 04:02:09 PM] [stdout] 
+[2026-07-08 04:02:10 PM] [stdout] Forcing termination of process 1192
+[2026-07-08 04:02:10 PM] [stdout] 
+[2026-07-08 04:02:13 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-08 04:02:13 PM] [stdout] 
+[2026-07-08 04:02:13 PM] [stdout]   ✓ studio manager stopped
+[2026-07-08 04:02:13 PM] [stdout] 
+[2026-07-08 04:02:13 PM] [stdout]   ✓ system tray stopped
+[2026-07-08 04:02:13 PM] [stdout] 
+[2026-07-08 04:02:13 PM] [stdout] Shutdown complete.
+[2026-07-08 04:02:13 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Asset Trust Monitor Started
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Setting up tools...
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Tools already installed
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Tools installed
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Rojo plugin already installed
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Rojo plugin installed
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Local mirror plugin installed
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Starting services...
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Rojo server started (PID: 26556)
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Services started
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] Roblox Studio opened (PID: 23068)
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:04:59 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-08 04:04:59 PM] [stdout] 
+[2026-07-08 04:05:00 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-08 04:05:00 PM] [stdout] 
+[2026-07-08 04:05:00 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-08 04:05:00 PM] [stdout] 
+[2026-07-08 04:05:00 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-08 04:05:00 PM] [stdout] 
+[2026-07-08 04:05:02 PM] [stdout] Rojo server PID 26556 no longer running
+[2026-07-08 04:05:02 PM] [stdout] 
+[2026-07-08 04:05:32 PM] [stdout] File monitoring started
+[2026-07-08 04:05:32 PM] [stdout] 
+[2026-07-08 04:05:32 PM] [stdout] Processing folder scanning started
+[2026-07-08 04:05:32 PM] [stdout] 
+[2026-07-08 04:06:05 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-08 04:06:05 PM] [stdout] 
+[2026-07-08 04:06:05 PM] [stdout] Shutting down...
+[2026-07-08 04:06:05 PM] [stdout] 
+[2026-07-08 04:06:05 PM] [stdout] File monitoring stopped
+[2026-07-08 04:06:05 PM] [stdout] 
+[2026-07-08 04:06:05 PM] [stdout]   ✓ file monitor stopped
+[2026-07-08 04:06:05 PM] [stdout] 
+[2026-07-08 04:06:06 PM] [stdout] Rojo server stopped
+[2026-07-08 04:06:06 PM] [stdout] 
+[2026-07-08 04:06:06 PM] [stdout]   ✓ rojo server stopped
+[2026-07-08 04:06:06 PM] [stdout] 
+[2026-07-08 04:06:06 PM] [stdout] Closing Roblox Studio (PID: 23068)
+[2026-07-08 04:06:06 PM] [stdout] 
+[2026-07-08 04:06:07 PM] [stdout] Forcing termination of process 23068
+[2026-07-08 04:06:07 PM] [stdout] 
+[2026-07-08 04:06:10 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-08 04:06:10 PM] [stdout] 
+[2026-07-08 04:06:10 PM] [stdout]   ✓ studio manager stopped
+[2026-07-08 04:06:10 PM] [stdout] 
+[2026-07-08 04:06:10 PM] [stdout]   ✓ system tray stopped
+[2026-07-08 04:06:10 PM] [stdout] 
+[2026-07-08 04:06:10 PM] [stdout] Shutdown complete.
+[2026-07-08 04:06:10 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Asset Trust Monitor Started
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Setting up tools...
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Tools already installed
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Tools installed
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Rojo plugin already installed
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Rojo plugin installed
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Plugin installed: C:\Users\gsims\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Local mirror plugin installed
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Starting services...
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Rojo server started (PID: 3912)
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Services started
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] Roblox Studio opened (PID: 26744)
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:52 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-07-08 04:06:52 PM] [stdout] 
+[2026-07-08 04:06:53 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-07-08 04:06:53 PM] [stdout] 
+[2026-07-08 04:06:53 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-07-08 04:06:53 PM] [stdout] 
+[2026-07-08 04:06:53 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-07-08 04:06:53 PM] [stdout] 
+[2026-07-08 04:06:56 PM] [stdout] File monitoring started
+[2026-07-08 04:06:56 PM] [stdout] 
+[2026-07-08 04:06:56 PM] [stdout] Processing folder scanning started
+[2026-07-08 04:06:56 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] Sanitizing XML file: a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_4-11PM.rbxmx
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] Removing incompatible property type for Tags: BinaryString
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] Removing incompatible property type for Tags: BinaryString
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] Removing incompatible property type for Tags: BinaryString
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] XML Sanitization complete.
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:09 PM] [stdout] Running Lune script: lune/init.luau
+[2026-07-08 04:11:09 PM] [stdout] 
+[2026-07-08 04:11:10 PM] [stdout] Queued asset: a6d5ee4108c6b2793cfdcec293c0a6b8 | 2026-07-08 4:11 PM
+[2026-07-08 04:11:10 PM] [stdout] 
+[2026-07-08 04:11:10 PM] [stdout] Lune script completed successfully
+[2026-07-08 04:11:10 PM] [stdout] 
+[2026-07-08 04:11:10 PM] [stdout] Output: Warning: Failed to process a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_4-11PM.rbxmx
+Unknown document format
+stack traceback:
+	[C]: in ?
+	__mlua_async_poll:27: in ?
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:19: in ?
+	[C]: in function 'pcall'
+	C:\Users\gsims\Desktop\Current Desktop\Asset_Trust_Monitor v1.4\app\Rojo_Build\lune:16: in ?
+
+Attempting fallback: Moving raw file to Workspace...
+Fallback successful: Moved raw file to src/Workspace/a6d5ee4108c6b2793cfdcec293c0a6b8_2026-07-08_4-11PM.rbxmx
+[2026-07-08 04:11:10 PM] [stdout] 
+[2026-07-08 04:12:26 PM] [stdout] Fetching Rojo versions...
+[2026-07-08 04:12:26 PM] [stdout] 
+[2026-07-08 04:12:27 PM] [stdout] Fetched 18 Rojo versions.
+[2026-07-08 04:12:27 PM] [stdout] 
+[2026-07-08 04:12:59 PM] [stdout] Auto clean trash set to: true
+[2026-07-08 04:12:59 PM] [stdout] 
+[2026-07-08 04:13:00 PM] [stdout] Auto clean trash set to: false
+[2026-07-08 04:13:00 PM] [stdout] 
+[2026-07-08 04:13:00 PM] [stdout] Auto clean trash set to: true
+[2026-07-08 04:13:00 PM] [stdout] 
+[2026-07-08 04:13:07 PM] [stdout] Auto clean trash set to: false
+[2026-07-08 04:13:07 PM] [stdout] 
+[2026-07-08 04:13:07 PM] [stdout] Auto clean trash set to: true
+[2026-07-08 04:13:07 PM] [stdout] 
+[2026-07-08 04:13:32 PM] [stdout] Auto clean trash set to: false
+[2026-07-08 04:13:32 PM] [stdout] 
+[2026-07-08 04:13:42 PM] [stdout] Auto clean trash set to: true
+[2026-07-08 04:13:42 PM] [stdout] 
+[2026-07-08 04:13:53 PM] [stdout] No regex statement saved to copy.
+[2026-07-08 04:13:53 PM] [stdout] 
+[2026-07-08 04:14:09 PM] [stdout] Regex statement saved.
+[2026-07-08 04:14:09 PM] [stdout] 
+[2026-07-08 04:14:12 PM] [stdout] Regex statement copied to clipboard.
+[2026-07-08 04:14:12 PM] [stdout] 
+[2026-07-08 04:25:36 PM] [stdout] Close requested - starting full application shutdown...
+[2026-07-08 04:25:36 PM] [stdout] 
+[2026-07-08 04:25:36 PM] [stdout] Shutting down...
+[2026-07-08 04:25:36 PM] [stdout] 
+[2026-07-08 04:25:36 PM] [stdout] File monitoring stopped
+[2026-07-08 04:25:36 PM] [stdout] 
+[2026-07-08 04:25:36 PM] [stdout]   ✓ file monitor stopped
+[2026-07-08 04:25:36 PM] [stdout] 
+[2026-07-08 04:25:38 PM] [stdout] Rojo server stopped
+[2026-07-08 04:25:38 PM] [stdout] 
+[2026-07-08 04:25:38 PM] [stdout]   ✓ rojo server stopped
+[2026-07-08 04:25:38 PM] [stdout] 
+[2026-07-08 04:25:38 PM] [stdout] Closing Roblox Studio (PID: 26744)
+[2026-07-08 04:25:38 PM] [stdout] 
+[2026-07-08 04:25:39 PM] [stdout] Forcing termination of process 26744
+[2026-07-08 04:25:39 PM] [stdout] 
+[2026-07-08 04:25:42 PM] [stdout] Roblox Studio close sequence complete
+[2026-07-08 04:25:42 PM] [stdout] 
+[2026-07-08 04:25:42 PM] [stdout]   ✓ studio manager stopped
+[2026-07-08 04:25:42 PM] [stdout] 
+[2026-07-08 04:25:42 PM] [stdout]   ✓ system tray stopped
+[2026-07-08 04:25:42 PM] [stdout] 
+[2026-07-08 04:25:42 PM] [stdout] Shutdown complete.
+[2026-07-08 04:25:42 PM] [stdout] 
