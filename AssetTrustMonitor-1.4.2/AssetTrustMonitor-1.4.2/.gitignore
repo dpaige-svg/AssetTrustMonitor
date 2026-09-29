@@ -1,0 +1,7 @@
+# Virtual environments contain machine-specific absolute Python paths.
+app/venv/
+
+# Python-generated caches.
+__pycache__/
+*.py[cod]
+.ruff_cache/

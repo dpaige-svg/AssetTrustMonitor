@@ -1,0 +1,297 @@
+[2026-09-29 03:33:56 PM] [stdout] Asset Trust Monitor Started
+[2026-09-29 03:33:56 PM] [stdout] Setting up tools...
+[2026-09-29 03:33:57 PM] [stdout] Tools already installed
+[2026-09-29 03:33:57 PM] [stdout] Tools installed
+[2026-09-29 03:33:57 PM] [stdout] Rojo plugin already installed
+[2026-09-29 03:33:57 PM] [stdout] Rojo plugin installed
+[2026-09-29 03:33:57 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-09-29 03:33:57 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-09-29 03:33:57 PM] [stdout] Plugin installed: C:\Users\dpaige\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-09-29 03:33:57 PM] [stdout] Local mirror plugin installed
+[2026-09-29 03:33:57 PM] [stdout] Starting services...
+[2026-09-29 03:33:57 PM] [stdout] Rojo server started and ready (PID: 20412)
+[2026-09-29 03:33:57 PM] [stdout] Services started
+[2026-09-29 03:33:57 PM] [stdout] Roblox Studio opened (PID: 32352)
+[2026-09-29 03:33:57 PM] [stdout] ✓ Debug menu initialized and ready
+[2026-09-29 03:33:58 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-09-29 03:33:58 PM] [stdout] ✓ All systems initialized - launching GUI...
+[2026-09-29 03:33:58 PM] [stdout] ✓ GUI launched successfully - Asset Trust Monitor is running!
+[2026-09-29 03:34:18 PM] [stdout] File monitoring started
+[2026-09-29 03:34:18 PM] [stdout] Processing folder scanning started
+[2026-09-29 03:34:29 PM] [stdout] Queued asset: 5e4e423cd8d206b5a331f23cdf52dc05 | 2026-09-29 3:34 PM
+[2026-09-29 03:34:30 PM] [stdout] Sanitizing XML file: 5e4e423cd8d206b5a331f23cdf52dc05_2026-09-29_3-34PM.rbxm
+[2026-09-29 03:34:30 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:34:30 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:34:30 PM] [stdout] Output: Warning: Failed to process 5e4e423cd8d206b5a331f23cdf52dc05_2026-09-29_3-34PM.rbxm
+[2026-09-29 03:34:30 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:34:30 PM] [stdout] stack traceback:
+[2026-09-29 03:34:30 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:34:30 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:34:30 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:34:30 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:34:30 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:34:30 PM] [stdout] 
+[2026-09-29 03:34:30 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:34:30 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/5e4e423cd8d206b5a331f23cdf52dc05_2026-09-29_3-34PM.rbxm
+[2026-09-29 03:34:30 PM] [stdout] 
+[2026-09-29 03:35:34 PM] [stdout] Queued asset: 21321cbacdeb5714b952a1111d0a9268 | 2026-09-29 3:35 PM
+[2026-09-29 03:35:34 PM] [stdout] Sanitizing XML file: 21321cbacdeb5714b952a1111d0a9268_2026-09-29_3-35PM.rbxm
+[2026-09-29 03:35:34 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:35:34 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:35:34 PM] [stdout] Output: Warning: Failed to process 21321cbacdeb5714b952a1111d0a9268_2026-09-29_3-35PM.rbxm
+[2026-09-29 03:35:34 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Folder.Tags should be SharedString, but it was Tags
+[2026-09-29 03:35:34 PM] [stdout] stack traceback:
+[2026-09-29 03:35:34 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:35:34 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:35:34 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:35:34 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:35:34 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:35:34 PM] [stdout] 
+[2026-09-29 03:35:34 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:35:34 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/21321cbacdeb5714b952a1111d0a9268_2026-09-29_3-35PM.rbxm
+[2026-09-29 03:35:34 PM] [stdout] 
+[2026-09-29 03:36:02 PM] [stdout] Queued asset: d4780def47db2db99d8ae6cb7a2f5e53 | 2026-09-29 3:36 PM
+[2026-09-29 03:36:02 PM] [stdout] Sanitizing XML file: d4780def47db2db99d8ae6cb7a2f5e53_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:02 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:36:03 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:36:03 PM] [stdout] Output: Warning: Failed to process d4780def47db2db99d8ae6cb7a2f5e53_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:03 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:36:03 PM] [stdout] stack traceback:
+[2026-09-29 03:36:03 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:36:03 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:36:03 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:36:03 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:36:03 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:36:03 PM] [stdout] 
+[2026-09-29 03:36:03 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:36:03 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/d4780def47db2db99d8ae6cb7a2f5e53_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:03 PM] [stdout] 
+[2026-09-29 03:36:25 PM] [stdout] Queued asset: 721386eeff17dfd0acb57d559f810380 | 2026-09-29 3:36 PM
+[2026-09-29 03:36:26 PM] [stdout] Sanitizing XML file: 721386eeff17dfd0acb57d559f810380_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:26 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:36:26 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:36:26 PM] [stdout] Output: Warning: Failed to process 721386eeff17dfd0acb57d559f810380_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:26 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Folder.Tags should be SharedString, but it was Tags
+[2026-09-29 03:36:26 PM] [stdout] stack traceback:
+[2026-09-29 03:36:26 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:36:26 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:36:26 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:36:26 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:36:26 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:36:26 PM] [stdout] 
+[2026-09-29 03:36:26 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:36:26 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/721386eeff17dfd0acb57d559f810380_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:26 PM] [stdout] 
+[2026-09-29 03:36:58 PM] [stdout] Queued asset: 08088a8085562dcac4ccdfdc7ff54f25 | 2026-09-29 3:36 PM
+[2026-09-29 03:36:59 PM] [stdout] Sanitizing XML file: 08088a8085562dcac4ccdfdc7ff54f25_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:59 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:36:59 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:36:59 PM] [stdout] Output: Warning: Failed to process 08088a8085562dcac4ccdfdc7ff54f25_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:59 PM] [stdout] Failed to read document from buffer - Type mismatch: Property BodyPartDescription.Tags should be SharedString, but it was Tags
+[2026-09-29 03:36:59 PM] [stdout] stack traceback:
+[2026-09-29 03:36:59 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:36:59 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:36:59 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:36:59 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:36:59 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:36:59 PM] [stdout] 
+[2026-09-29 03:36:59 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:36:59 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/08088a8085562dcac4ccdfdc7ff54f25_2026-09-29_3-36PM.rbxm
+[2026-09-29 03:36:59 PM] [stdout] 
+[2026-09-29 03:43:09 PM] [stdout] Queued asset: 7472267748a9974ee8cdc287a7ce7f01 | 2026-09-29 3:43 PM
+[2026-09-29 03:43:09 PM] [stdout] Sanitizing XML file: 7472267748a9974ee8cdc287a7ce7f01_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:09 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:43:09 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:43:09 PM] [stdout] Output: Warning: Failed to process 7472267748a9974ee8cdc287a7ce7f01_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:09 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Attachment.Tags should be SharedString, but it was Tags
+[2026-09-29 03:43:09 PM] [stdout] stack traceback:
+[2026-09-29 03:43:09 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:43:09 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:43:09 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:43:09 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:43:09 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:43:09 PM] [stdout] 
+[2026-09-29 03:43:09 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:43:09 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/7472267748a9974ee8cdc287a7ce7f01_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:09 PM] [stdout] 
+[2026-09-29 03:43:51 PM] [stdout] Queued asset: c7859ef79352e1f4db10659112d551c9 | 2026-09-29 3:43 PM
+[2026-09-29 03:43:52 PM] [stdout] Sanitizing XML file: c7859ef79352e1f4db10659112d551c9_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:52 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:43:52 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:43:52 PM] [stdout] Output: Warning: Failed to process c7859ef79352e1f4db10659112d551c9_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:52 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Folder.Tags should be SharedString, but it was Tags
+[2026-09-29 03:43:52 PM] [stdout] stack traceback:
+[2026-09-29 03:43:52 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:43:52 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:43:52 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:43:52 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:43:52 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:43:52 PM] [stdout] 
+[2026-09-29 03:43:52 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:43:52 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/c7859ef79352e1f4db10659112d551c9_2026-09-29_3-43PM.rbxm
+[2026-09-29 03:43:52 PM] [stdout] 
+[2026-09-29 03:44:16 PM] [stdout] Queued asset: 1af3aa3a7869e609068c0333fb588ad2 | 2026-09-29 3:44 PM
+[2026-09-29 03:44:16 PM] [stdout] Sanitizing XML file: 1af3aa3a7869e609068c0333fb588ad2_2026-09-29_3-44PM.rbxm
+[2026-09-29 03:44:16 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:44:16 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:44:16 PM] [stdout] Output: Warning: Failed to process 1af3aa3a7869e609068c0333fb588ad2_2026-09-29_3-44PM.rbxm
+[2026-09-29 03:44:16 PM] [stdout] Failed to read document from buffer - Type mismatch: Property ModuleScript.Tags should be SharedString, but it was Tags
+[2026-09-29 03:44:16 PM] [stdout] stack traceback:
+[2026-09-29 03:44:16 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:44:16 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:44:16 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:44:16 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:44:16 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:44:16 PM] [stdout] 
+[2026-09-29 03:44:16 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:44:16 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/1af3aa3a7869e609068c0333fb588ad2_2026-09-29_3-44PM.rbxm
+[2026-09-29 03:44:16 PM] [stdout] 
+[2026-09-29 03:46:48 PM] [stdout] Queued asset: 4b89505f65a645a246c2aba928f5d35f | 2026-09-29 3:46 PM
+[2026-09-29 03:46:48 PM] [stdout] Sanitizing XML file: 4b89505f65a645a246c2aba928f5d35f_2026-09-29_3-46PM.rbxm
+[2026-09-29 03:46:48 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:46:48 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:46:48 PM] [stdout] Output: Warning: Failed to process 4b89505f65a645a246c2aba928f5d35f_2026-09-29_3-46PM.rbxm
+[2026-09-29 03:46:48 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Folder.Tags should be SharedString, but it was Tags
+[2026-09-29 03:46:48 PM] [stdout] stack traceback:
+[2026-09-29 03:46:48 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:46:48 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:46:48 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:46:48 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:46:48 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:46:48 PM] [stdout] 
+[2026-09-29 03:46:48 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:46:48 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/4b89505f65a645a246c2aba928f5d35f_2026-09-29_3-46PM.rbxm
+[2026-09-29 03:46:48 PM] [stdout] 
+[2026-09-29 03:47:08 PM] [stdout] Queued asset: add3945a8ddf1999a15a83dde3a8930f | 2026-09-29 3:47 PM
+[2026-09-29 03:47:08 PM] [stdout] Sanitizing XML file: add3945a8ddf1999a15a83dde3a8930f_2026-09-29_3-47PM.rbxm
+[2026-09-29 03:47:08 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:47:08 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:47:08 PM] [stdout] Output: Warning: Failed to process add3945a8ddf1999a15a83dde3a8930f_2026-09-29_3-47PM.rbxm
+[2026-09-29 03:47:08 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:47:08 PM] [stdout] stack traceback:
+[2026-09-29 03:47:08 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:47:08 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:47:08 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:47:08 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:47:08 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:47:08 PM] [stdout] 
+[2026-09-29 03:47:08 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:47:08 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/add3945a8ddf1999a15a83dde3a8930f_2026-09-29_3-47PM.rbxm
+[2026-09-29 03:47:08 PM] [stdout] 
+[2026-09-29 03:48:31 PM] [stdout] Queued asset: 0fe1e6545c8a10828d21148e51a7a36e | 2026-09-29 3:48 PM
+[2026-09-29 03:48:32 PM] [stdout] Sanitizing XML file: 0fe1e6545c8a10828d21148e51a7a36e_2026-09-29_3-48PM.rbxm
+[2026-09-29 03:48:32 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:48:32 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:48:32 PM] [stdout] Output: Wrapped and moved: 0fe1e6545c8a10828d21148e51a7a36e_2026-09-29_3-48PM
+[2026-09-29 03:48:32 PM] [stdout] 
+[2026-09-29 03:48:46 PM] [stdout] Queued asset: f77f2b0107347f751c6c8d4c612b4051 | 2026-09-29 3:48 PM
+[2026-09-29 03:48:46 PM] [stdout] Sanitizing XML file: f77f2b0107347f751c6c8d4c612b4051_2026-09-29_3-48PM.rbxm
+[2026-09-29 03:48:46 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:48:46 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:48:46 PM] [stdout] Output: Warning: Failed to process f77f2b0107347f751c6c8d4c612b4051_2026-09-29_3-48PM.rbxm
+[2026-09-29 03:48:46 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:48:46 PM] [stdout] stack traceback:
+[2026-09-29 03:48:46 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:48:46 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:48:46 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:48:46 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:48:46 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:48:46 PM] [stdout] 
+[2026-09-29 03:48:46 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:48:46 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/f77f2b0107347f751c6c8d4c612b4051_2026-09-29_3-48PM.rbxm
+[2026-09-29 03:48:46 PM] [stdout] 
+[2026-09-29 03:49:07 PM] [stdout] Queued asset: 4cb9baf8d513a6a1b880165c235be995 | 2026-09-29 3:49 PM
+[2026-09-29 03:49:07 PM] [stdout] Sanitizing XML file: 4cb9baf8d513a6a1b880165c235be995_2026-09-29_3-49PM.rbxm
+[2026-09-29 03:49:07 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:49:07 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:49:07 PM] [stdout] Output: Warning: Failed to process 4cb9baf8d513a6a1b880165c235be995_2026-09-29_3-49PM.rbxm
+[2026-09-29 03:49:07 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Folder.Tags should be SharedString, but it was Tags
+[2026-09-29 03:49:07 PM] [stdout] stack traceback:
+[2026-09-29 03:49:07 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:49:07 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:49:07 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:49:07 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:49:07 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:49:07 PM] [stdout] 
+[2026-09-29 03:49:07 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:49:07 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/4cb9baf8d513a6a1b880165c235be995_2026-09-29_3-49PM.rbxm
+[2026-09-29 03:49:07 PM] [stdout] 
+[2026-09-29 03:49:29 PM] [stdout] Queued asset: f01a8ae7d02e1d396c1e4e093129c7d2 | 2026-09-29 3:49 PM
+[2026-09-29 03:49:29 PM] [stdout] Sanitizing XML file: f01a8ae7d02e1d396c1e4e093129c7d2_2026-09-29_3-49PM.rbxm
+[2026-09-29 03:49:29 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:49:29 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:49:29 PM] [stdout] Output: Wrapped and moved: f01a8ae7d02e1d396c1e4e093129c7d2_2026-09-29_3-49PM
+[2026-09-29 03:49:29 PM] [stdout] 
+[2026-09-29 03:49:46 PM] [stdout] Queued asset: 72616bfe3738274a38f06f7285106ad1 | 2026-09-29 3:49 PM
+[2026-09-29 03:49:46 PM] [stdout] Sanitizing XML file: 72616bfe3738274a38f06f7285106ad1_2026-09-29_3-49PM.rbxm
+[2026-09-29 03:49:46 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:49:46 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:49:46 PM] [stdout] Output: Wrapped and moved: 72616bfe3738274a38f06f7285106ad1_2026-09-29_3-49PM
+[2026-09-29 03:49:46 PM] [stdout] 
+[2026-09-29 03:50:15 PM] [stdout] Queued asset: 3e6db4cf5d8497f7f45ae646450e8285 | 2026-09-29 3:50 PM
+[2026-09-29 03:50:16 PM] [stdout] Sanitizing XML file: 3e6db4cf5d8497f7f45ae646450e8285_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:16 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:50:16 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:50:16 PM] [stdout] Output: Warning: Failed to process 3e6db4cf5d8497f7f45ae646450e8285_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:16 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:50:16 PM] [stdout] stack traceback:
+[2026-09-29 03:50:16 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:50:16 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:50:16 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:50:16 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:50:16 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:50:16 PM] [stdout] 
+[2026-09-29 03:50:16 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:50:16 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/3e6db4cf5d8497f7f45ae646450e8285_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:16 PM] [stdout] 
+[2026-09-29 03:50:32 PM] [stdout] Queued asset: b7012d01bb4a02329bddfb46be1d3917 | 2026-09-29 3:50 PM
+[2026-09-29 03:50:33 PM] [stdout] Sanitizing XML file: b7012d01bb4a02329bddfb46be1d3917_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:33 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:50:33 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:50:33 PM] [stdout] Output: Warning: Failed to process b7012d01bb4a02329bddfb46be1d3917_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:33 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Animator.Tags should be SharedString, but it was Tags
+[2026-09-29 03:50:33 PM] [stdout] stack traceback:
+[2026-09-29 03:50:33 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:50:33 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:50:33 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:50:33 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:50:33 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:50:33 PM] [stdout] 
+[2026-09-29 03:50:33 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:50:33 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/b7012d01bb4a02329bddfb46be1d3917_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:33 PM] [stdout] 
+[2026-09-29 03:50:49 PM] [stdout] Queued asset: 141aa673aa62c773545588d135428d6e | 2026-09-29 3:50 PM
+[2026-09-29 03:50:49 PM] [stdout] Sanitizing XML file: 141aa673aa62c773545588d135428d6e_2026-09-29_3-50PM.rbxm
+[2026-09-29 03:50:49 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:50:49 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:50:49 PM] [stdout] Output: Wrapped and moved: 141aa673aa62c773545588d135428d6e_2026-09-29_3-50PM
+[2026-09-29 03:50:49 PM] [stdout] 
+[2026-09-29 03:51:07 PM] [stdout] Queued asset: bfbb06d30cd518c098089af32a62e78b | 2026-09-29 3:51 PM
+[2026-09-29 03:51:07 PM] [stdout] Sanitizing XML file: bfbb06d30cd518c098089af32a62e78b_2026-09-29_3-51PM.rbxm
+[2026-09-29 03:51:07 PM] [stdout] Running Lune script: lune/init.luau
+[2026-09-29 03:51:07 PM] [stdout] Lune script completed successfully
+[2026-09-29 03:51:07 PM] [stdout] Output: Warning: Failed to process bfbb06d30cd518c098089af32a62e78b_2026-09-29_3-51PM.rbxm
+[2026-09-29 03:51:07 PM] [stdout] Failed to read document from buffer - Type mismatch: Property Script.Tags should be SharedString, but it was Tags
+[2026-09-29 03:51:07 PM] [stdout] stack traceback:
+[2026-09-29 03:51:07 PM] [stdout] 	[C]: in ?
+[2026-09-29 03:51:07 PM] [stdout] 	__mlua_async_poll:27: in ?
+[2026-09-29 03:51:07 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:19: in ?
+[2026-09-29 03:51:07 PM] [stdout] 	[C]: in function 'pcall'
+[2026-09-29 03:51:07 PM] [stdout] 	C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.2\AssetTrustMonitor-1.4.2\app\Rojo_Build\lune:16: in ?
+[2026-09-29 03:51:07 PM] [stdout] 
+[2026-09-29 03:51:07 PM] [stdout] Attempting fallback: Moving raw file to Workspace...
+[2026-09-29 03:51:07 PM] [stdout] Fallback successful: Moved raw file to src/Workspace/bfbb06d30cd518c098089af32a62e78b_2026-09-29_3-51PM.rbxm
+[2026-09-29 03:51:07 PM] [stdout] 
+[2026-09-29 04:00:01 PM] [stdout] Close requested - starting full application shutdown...
+[2026-09-29 04:00:01 PM] [stdout] Shutting down...
+[2026-09-29 04:00:01 PM] [stdout] File monitoring stopped
+[2026-09-29 04:00:01 PM] [stdout]   ✓ file monitor stopped
+[2026-09-29 04:00:01 PM] [stdout] Forcing termination of process 20412
+[2026-09-29 04:00:02 PM] [stdout] Rojo server stopped
+[2026-09-29 04:00:02 PM] [stdout]   ✓ rojo server stopped
+[2026-09-29 04:00:02 PM] [stdout] Closing Roblox Studio (PID: 32352)
+[2026-09-29 04:00:02 PM] [stdout] Forcing termination of process 32352
+[2026-09-29 04:00:03 PM] [stdout] Roblox Studio close sequence complete
+[2026-09-29 04:00:03 PM] [stdout]   ✓ studio manager stopped
+[2026-09-29 04:00:03 PM] [stdout]   ✓ system tray stopped
+[2026-09-29 04:00:03 PM] [stdout] Shutdown complete.
