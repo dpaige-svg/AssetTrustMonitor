@@ -1,0 +1,13 @@
+2026-10-01 16:13:38,838 [INFO] Startup session beginning
+2026-10-01 16:13:38,838 [INFO] Python executable: C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\venv\Scripts\pythonw.exe
+2026-10-01 16:13:38,875 [INFO] Python version: 3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]
+2026-10-01 16:13:38,875 [INFO] Stage 1/4: Checking Python...
+2026-10-01 16:13:38,876 [INFO] Stage 1 complete: Python 3.13.0 detected
+2026-10-01 16:13:38,876 [INFO] Stage 2/4: Setting up environment...
+2026-10-01 16:13:38,876 [INFO] Virtual environment: C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\venv
+2026-10-01 16:13:38,876 [INFO] Stage 2 complete: Existing virtual environment validated
+2026-10-01 16:13:38,877 [INFO] Stage 3/4: Checking dependencies...
+2026-10-01 16:13:39,045 [INFO] Stage 3 complete: Dependencies already satisfied
+2026-10-01 16:13:39,046 [INFO] Stage 4/4: Starting AssetTrustMonitor...
+2026-10-01 16:13:39,865 [INFO] Startup preflight completed successfully
+2026-10-01 16:13:39,951 [INFO] Real application initialization succeeded

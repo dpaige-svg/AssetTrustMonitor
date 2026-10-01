@@ -1,0 +1,43 @@
+
+> C:\Users\dpaige\AppData\Local\Programs\Python\Python313\pythonw.exe -m venv C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\venv
+
+> C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\venv\Scripts\python.exe -m pip install -r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt --disable-pip-version-check
+Collecting pillow>=11.0.0 (from -r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 1))
+  Using cached pillow-12.3.0-cp313-cp313-win_amd64.whl.metadata (9.3 kB)
+Collecting PySide6<7,>=6.8 (from -r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 2))
+  Downloading pyside6-6.11.2-cp310-abi3-win_amd64.whl.metadata (5.4 kB)
+Collecting send2trash>=1.8.3 (from -r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 3))
+  Using cached send2trash-2.1.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting requests>=2.32.0 (from -r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 4))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting shiboken6==6.11.2 (from PySide6<7,>=6.8->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 2))
+  Downloading shiboken6-6.11.2-cp310-abi3-win_amd64.whl.metadata (2.5 kB)
+Collecting PySide6_Essentials==6.11.2 (from PySide6<7,>=6.8->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 2))
+  Downloading pyside6_essentials-6.11.2-cp310-abi3-win_amd64.whl.metadata (3.8 kB)
+Collecting PySide6_Addons==6.11.2 (from PySide6<7,>=6.8->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 2))
+  Downloading pyside6_addons-6.11.2-cp310-abi3-win_amd64.whl.metadata (4.2 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.32.0->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 4))
+  Downloading charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl.metadata (47 kB)
+Collecting idna<4,>=2.5 (from requests>=2.32.0->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 4))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests>=2.32.0->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 4))
+  Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests>=2.32.0->-r C:\Users\dpaige\Downloads\AssetTrustMonitor-1.4.3\AssetTrustMonitor-1.4.3\app\App_Build\requirements.txt (line 4))
+  Using cached certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Using cached pillow-12.3.0-cp313-cp313-win_amd64.whl (7.2 MB)
+Downloading pyside6-6.11.2-cp310-abi3-win_amd64.whl (578 kB)
+   --------------------------------------- 578.4/578.4 kB 10.1 MB/s eta 0:00:00
+Downloading pyside6_addons-6.11.2-cp310-abi3-win_amd64.whl (168.2 MB)
+   --------------------------------------- 168.2/168.2 MB 77.8 MB/s eta 0:00:00
+Downloading pyside6_essentials-6.11.2-cp310-abi3-win_amd64.whl (76.9 MB)
+   ---------------------------------------- 76.9/76.9 MB 62.7 MB/s eta 0:00:00
+Downloading shiboken6-6.11.2-cp310-abi3-win_amd64.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 39.3 MB/s eta 0:00:00
+Using cached send2trash-2.1.0-py3-none-any.whl (17 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached certifi-2026.7.22-py3-none-any.whl (136 kB)
+Downloading charset_normalizer-3.5.2-cp313-cp313-win_amd64.whl (206 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Installing collected packages: urllib3, shiboken6, send2trash, pillow, idna, charset_normalizer, certifi, requests, PySide6_Essentials, PySide6_Addons, PySide6
+Successfully installed PySide6-6.11.2 PySide6_Addons-6.11.2 PySide6_Essentials-6.11.2 certifi-2026.7.22 charset_normalizer-3.5.2 idna-3.20 pillow-12.3.0 requests-2.34.2 send2trash-2.1.0 shiboken6-6.11.2 urllib3-2.8.0

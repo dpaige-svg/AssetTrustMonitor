@@ -1,0 +1,31 @@
+[2026-10-01 04:13:39 PM] [stdout] Asset Trust Monitor Started
+[2026-10-01 04:13:41 PM] [stdout] Setting up tools...
+[2026-10-01 04:13:41 PM] [stdout] Tools already installed
+[2026-10-01 04:13:41 PM] [stdout] Tools installed
+[2026-10-01 04:13:41 PM] [stdout] Rojo plugin already installed
+[2026-10-01 04:13:41 PM] [stdout] Rojo plugin installed
+[2026-10-01 04:13:41 PM] [stdout] Refreshing Asset Trust mirror plugin from local source...
+[2026-10-01 04:13:41 PM] [stdout] Installing plugin AssetTrustMirrorPlugin.lua...
+[2026-10-01 04:13:41 PM] [stdout] Plugin installed: C:\Users\dpaige\AppData\Local\Roblox\Plugins\AssetTrustMirrorPlugin.lua
+[2026-10-01 04:13:41 PM] [stdout] Local mirror plugin installed
+[2026-10-01 04:13:41 PM] [stdout] Starting services...
+[2026-10-01 04:13:42 PM] [stdout] Rojo server started and ready (PID: 6360)
+[2026-10-01 04:13:42 PM] [stdout] Services started
+[2026-10-01 04:13:43 PM] [stdout] Roblox Studio opened (PID: 13376)
+[2026-10-01 04:13:43 PM] [stdout] OK: Debug menu initialized and ready
+[2026-10-01 04:13:43 PM] [stdout] System tray disabled: pystray is unavailable for this Python version.
+[2026-10-01 04:13:43 PM] [stdout] All systems initialized - launching GUI...
+[2026-10-01 04:13:43 PM] [stdout] GUI launched successfully - Asset Trust Monitor is running!
+[2026-10-01 04:15:05 PM] [stdout] Close requested - starting full application shutdown...
+[2026-10-01 04:15:05 PM] [stdout] Shutting down...
+[2026-10-01 04:15:05 PM] [stdout] File monitoring stopped
+[2026-10-01 04:15:05 PM] [stdout]   OK: file monitor stopped
+[2026-10-01 04:15:05 PM] [stdout] Forcing termination of process 6360
+[2026-10-01 04:15:06 PM] [stdout] Rojo server stopped
+[2026-10-01 04:15:06 PM] [stdout]   OK: rojo server stopped
+[2026-10-01 04:15:06 PM] [stdout] Closing Roblox Studio (PID: 13376)
+[2026-10-01 04:15:06 PM] [stdout] Forcing termination of process 13376
+[2026-10-01 04:15:07 PM] [stdout] Roblox Studio close sequence complete
+[2026-10-01 04:15:07 PM] [stdout]   OK: studio manager stopped
+[2026-10-01 04:15:07 PM] [stdout]   OK: system tray stopped
+[2026-10-01 04:15:07 PM] [stdout] Shutdown complete.
